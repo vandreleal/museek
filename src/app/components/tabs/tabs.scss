@@ -1,17 +1,11 @@
-.acme-navbar-text{
-  color: white;
+md-tabs {
+  font-weight: 500;
 }
 
 a {
-  color: black;
-}
-
-h1 {
-  font-size: 2em;
-  margin: 0;
-  line-height: 1.25em;
+  color: $md-grey-900;
 }
 
 a:hover, a:focus {
-  color: greenyellow;
+  color: $md-red-900;
 }

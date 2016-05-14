@@ -77,7 +77,6 @@
     }
 
     $scope.setUser = function() {
-      $log.debug($scope.user);
       onUserChange();
       onMethodChange();
     }

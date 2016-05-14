@@ -1,8 +1,8 @@
-<md-content>
+<md-content flex layout-fill>
   <header class="page-header">
     <div class="wrapper">
       <h1 class="md-display-3">Museek</h1>
-      <h2 class="md-headline">Cool headline here.</h2>
+      <h2 class="md-headline description">Last.fm user's stats.</h2>
 
       <form name="userForm">
         <div layout-gt-sm="row">
@@ -37,15 +37,18 @@
   <section class="page-content">
     <div class="wrapper">
 
-      <div class="user-profile text-centered">
+      <div ng-show="userInfo" class="user-profile text-center">
         <a href="{{ userInfo.user.url }}" target="_blank">
           <img ng-src="{{ userInfo.user.image[2]['#text'] }}" class="profile" alt="{{ userInfo.user.name }}" />
         </a>
 
-        <h1> {{ userInfo.user.realname }} </h1>
         <a href="{{ userInfo.user.url }}" target="_blank">
-          <h3> {{ userInfo.user.name }} </h3>
+          <h1> {{ userInfo.user.realname }} </h1>
         </a>
+
+        <!-- <md-icon><i class="material-icons">access_time</i></md-icon><span> -->
+        <p>{{ userInfo.user.playcount | number:0 }} scrobbles</p>
+        <p>{{ userTop.topartists['@attr']['total'] | number:0 }} artists</p>
       </div>
 
       <core-tabs ng-show="userInfo"></core-tabs>
@@ -59,7 +62,12 @@
             <a href="{{ item.url }}" target="_blank">
               <h3>{{ item.name }}</h3>
             </a>
-            <p>{{ item.playcount }} plays</p>
+            <p>{{ item.playcount | number:0 }} scrobbles</p>
+          </div>
+
+          <div class="md-list-item-text text-right">
+            <p>#{{ item['@attr']['rank'] }}</p>
+            <p>{{ (item.playcount / userInfo.user.playcount) * 100 | number:2 }}%</p>
           </div>
         </md-list-item>
       </div>

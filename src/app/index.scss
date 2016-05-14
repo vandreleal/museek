@@ -5,7 +5,8 @@
 // bower:scss
 // endbower
 
-@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,700,700italic,400italic);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,500,700|Roboto:400,500,700,700italic,400italic);
+@import '../../bower_components/material-colors/dist/colors.scss';
 
 @font-face {
   font-family: 'Material Icons';
@@ -44,14 +45,24 @@
   font-feature-settings: 'liga';
 }
 
+/* Rules for sizing the icon. */
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
 html {
   font-family: 'Roboto Slab', serif;
 }
 
+p {
+  color: $md-grey-700;
+}
+
 .browsehappy {
   margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
+  background: $md-grey-300;
+  color: $md-grey-900;
   padding: 0.2em 0;
 }
 
@@ -69,6 +80,11 @@ html {
   background-position: center center;
   text-align: center;
 
+  .description {
+    margin-top: 24px;
+    margin-bottom: 48px;
+  }
+
   .btn-retrieve {
     padding: 8px 30px;
     border-radius: 25px;
@@ -80,8 +96,10 @@ md-select {
   text-align: left;
 }
 
-.text-centered {
-  text-align: center;
+.text {
+  &-left   { text-align: left; }
+  &-center { text-align: center; }
+  &-right  { text-align: right; }
 }
 
 .page-content {
