@@ -56,20 +56,50 @@ html {
 }
 
 .wrapper {
-  padding: 48px 16px;
-  max-width: 700px;
+  padding-left: 16px;
+  padding-right: 16px;
+  max-width: 600px;
   margin: 0 auto;
 }
 
 .page-header {
-  // background: url("/assets/default_header.jpg");
+  padding-top: 72px;
+  background-image: url("/assets/default_header-edited.jpeg");
+  background-size: cover;
+  background-position: center center;
+  text-align: center;
+
+  .btn-retrieve {
+    padding: 8px 30px;
+    border-radius: 25px;
+    transform: translateY(32px);
+  }
+}
+
+md-select {
+  text-align: left;
+}
+
+.text-centered {
+  text-align: center;
+}
+
+.page-content {
+  .user-profile {
+    margin-top: 72px;
+    margin-bottom: 36px;
+  }
+
+  .user-listbox {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
 }
 
 .profile {
   max-height: 120px;
   border-radius: 50%;
 }
-
 
 /**
  *  Do not remove the comment below. It's the markers used by gulp-inject to inject

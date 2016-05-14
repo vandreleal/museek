@@ -35,7 +35,8 @@
           'hue-3': '300'
         })
         .accentPalette('appAccentTheme', {
-          'default': '700'
+          'default': '900',
+          'hue-1': '700'
         });
 
       // Configure a theme for input

@@ -3,14 +3,14 @@
 
   angular
     .module('museek')
-    .directive('coreNavbar', coreNavbar);
+    .directive('coreTabs', coreTabs);
 
   /** @ngInject */
-  function coreNavbar() {
+  function coreTabs() {
     var directive = {
       restrict: 'E',
-      templateUrl: 'app/components/navbar/navbar.html',
-      controller: NavbarController,
+      templateUrl: 'app/components/tabs/tabs.html',
+      controller: TabsController,
       controllerAs: 'vm',
       bindToController: true
     };
@@ -18,7 +18,7 @@
     return directive;
 
     /** @ngInject */
-    function NavbarController($scope) {
+    function TabsController($scope) {
 
       // Initialize scope variables.
       $scope.method = "user.gettopartists";
