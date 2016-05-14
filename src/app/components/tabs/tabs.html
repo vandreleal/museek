@@ -3,9 +3,27 @@
   md-center-tabs="true"
   md-border-bottom="true"
   md-selected="selectedIndex">
-<md-tab ng-repeat="tab in tabs"
+<!-- <md-tab ng-repeat="tab in tabs"
         ng-disabled="tab.disabled"
         label="{{tab.label}}"
         method="{{tab.method}}"
-        ng-click="setMethod(tab)"></md-tab>
+        ng-click="setMethod(tab)"></md-tab> -->
+
+  <md-tab label="Top Artists">
+    <md-content>
+        <top-artists></top-artists>
+      </md-content>
+  </md-tab>
+
+  <md-tab label="Top Albums">
+    <md-content>
+        <top-albums></top-albums>
+      </md-content>
+  </md-tab>
+
+  <md-tab label="Top Tracks">
+    <md-content>
+        <top-tracks></top-tracks>
+      </md-content>
+  </md-tab>
 </md-tabs>

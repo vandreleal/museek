@@ -1,4 +1,4 @@
-<md-list-item class="md-2-line" ng-repeat="item in ctrl.data">
+<md-list-item class="md-2-line" ng-repeat="item in ctrl.artists">
 <a href="{{ item.url }}" target="_blank">
   <img ng-src="{{ item.image[1]['#text'] }}" class="md-avatar md-avatar-56" alt="{{ item.name }}" />
 </a>
@@ -6,6 +6,11 @@
     <a href="{{ item.url }}" target="_blank">
       <h3>{{ item.name }}</h3>
     </a>
-    <p>{{ item.playcount }}</p>
+    <p>{{ item.playcount | number:0 }} scrobbles</p>
+  </div>
+
+  <div class="md-list-item-text text-right">
+    <p>#{{ item['@attr']['rank'] }}</p>
+    <p>{{ (item.playcount / userInfo.user.playcount) * 100 | number:2 }}%</p>
   </div>
 </md-list-item>

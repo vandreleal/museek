@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('museek', ['ngResource', 'ui.router', 'ngMaterial', 'toastr']);
+    .module('museek', ['ngResource', 'ngRoute', 'ngMaterial', 'toastr']);
 
 })();
