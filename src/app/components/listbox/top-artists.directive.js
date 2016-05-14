@@ -6,17 +6,18 @@
     .component('topArtists', {
       templateUrl: 'app/components/listbox/top-artists.html',
       controller: TopArtistsController
-      // scope: {
-      //   artists: "="
-      // }
     });
 
   /** @ngInject */
-  function TopArtistsController($rootScope, $scope, $http, $log) {
+  function TopArtistsController($scope, $http, $log, config, apiMethods) {
     var ctrl = this;
 
-    ctrl.method   = "user.gettopartists";
-    $log.debug(ctrl.method);
+    // $scope.on('onRetrieve', {
+    //   user: vm.user,
+    //   period: vm.period,
+    //   limit: vm.limit
+    // });
+
     // $scope.api_key  = "5d78615f919a188a79598df5687242f4";
     // $scope.format   = "json";
     // $scope.period   = "overall"
@@ -50,25 +51,5 @@
     //       $log.error({ type: response.status, msg: response.data });
     //   });
     // }
-
-    // var requestCards = {
-    //   method: 'GET',
-    //   url: "mock/summary/cards.data.json",
-    //   headers: { },
-    //   data: { }
-    // }
-    //
-    // $http(requestCards).then(function successCallback(response) {
-    //     cards = response.data;
-    //
-    //     for(var i = 0; i < cards.length; i++) {
-    //       if(cards[i].name.trim().toLowerCase() == ctrl.name.trim().toLowerCase()) {
-    //         ctrl.value = cards[i].count;
-    //       }
-    //     }
-    //   },
-    //   function errorCallback() {
-    //     ctrl.value = "-";
-    // });
   }
 })();

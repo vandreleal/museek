@@ -6,38 +6,32 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($rootScope, $scope, $timeout, $http, $log) {
+  function MainController($scope, $timeout, $http, $log, config, apiMethods) {
     var vm = this;
 
-    $rootScope.api_key  = "5d78615f919a188a79598df5687242f4";
-    $rootScope.format   = "json";
+    vm.user   = config.USER;
+    vm.period = config.PERIOD;
+    vm.limit  = config.LIMIT;
 
     vm.periods = ["overall","7day","1month","6month","12month"];
-    vm.user   = "vandrelc";
-    vm.period = "overall";
-    vm.limit  = "10";
 
-    $log.debug(vm);
-
-    function onUserRetrieve() {
+    function getUserInfo() {
       var parameters =
-        $.param({
-          method  : "user.getinfo",
+        angular.element.param({
+          method  : apiMethods.GET_USER_INFO,
           user    : vm.user,
-          api_key : $rootScope.api_key,
-          format  : $rootScope.format
+          api_key : config.API_KEY,
+          format  : config.FORMAT
         });
 
-      $log.debug(parameters);
-
-      var requestUserInfo = {
+      var request = {
         method: 'GET',
-        url: "http://ws.audioscrobbler.com/2.0/?" + parameters,
+        url: config.URL + parameters,
         headers: { },
         data: { }
       }
 
-      $http(requestUserInfo).then(function successCallback(response) {
+      $http(request).then(function successCallback(response) {
           vm.userInfo = response.data;
           $log.debug(vm.userInfo);
         },
@@ -46,38 +40,8 @@
       });
     }
 
-    // function onMethodChange() {
-    //   var parameters =
-    //     $.param({
-    //       method  : $scope.method,
-    //       user    : $rootScope.user,
-    //       api_key : $rootScope.api_key,
-    //       format  : $rootScope.format,
-    //       period  : $scope.period,
-    //       limit   : $scope.limit,
-    //     });
-    //
-    //   $log.debug(parameters);
-    //
-    //   var requestUserTop = {
-    //     method: 'GET',
-    //     url: "http://ws.audioscrobbler.com/2.0/?" + parameters,
-    //     headers: { },
-    //     data: { }
-    //   }
-    //
-    //   $http(requestUserTop).then(function successCallback(response) {
-    //       $scope.userTop = response.data;
-    //       $log.debug($scope.userTop);
-    //     },
-    //     function errorCallback(response) {
-    //       $log.error({ type: response.status, msg: response.data });
-    //   });
-    // }
-
     vm.setUser = function() {
-      onUserRetrieve();
-      // onMethodChange();
+      getUserInfo();
 
       $scope.$broadcast('onRetrieve', {
         user: vm.user,
@@ -85,12 +49,5 @@
         limit: vm.limit
       });
     }
-
-    // $scope.$on('onMethodChange', function(event, message) {
-    //   if(message) {
-    //     $scope.method = message.method;
-    //     onMethodChange();
-    //   }
-    // });
   }
 })();
