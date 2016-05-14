@@ -9,31 +9,31 @@
   function MainController($scope, $timeout, $http, $log) {
     var vm = this;
 
-    vm.method   = "user.gettopartists";
-    vm.user     = "vandrelc";
-    vm.api_key  = "5d78615f919a188a79598df5687242f4";
-    vm.format   = "json";
-    vm.period   = "overall"
-    vm.limit    = "10";
+    $scope.method   = "user.gettopartists";
+    $scope.user     = "vandrelc";
+    $scope.api_key  = "5d78615f919a188a79598df5687242f4";
+    $scope.format   = "json";
+    $scope.period   = "overall"
+    $scope.limit    = "10";
 
     $scope.$on('onMethodChange', function(event, message) {
       if(message) {
-        vm.method = message.method;
-        onMethodChange();
+        $scope.method = message.method;
+        onChange();
       }
     });
 
     // activate();
 
-    function onMethodChange() {
+    function onChange() {
       var parameters =
         $.param({
-          method  : vm.method,
-          user    : vm.user,
-          api_key : vm.api_key,
-          period  : vm.period,
-          limit   : vm.limit,
-          format  : vm.format
+          method  : $scope.method,
+          user    : $scope.user,
+          api_key : $scope.api_key,
+          period  : $scope.period,
+          limit   : $scope.limit,
+          format  : $scope.format
         });
 
       $log.debug(parameters);
@@ -52,6 +52,11 @@
         function errorCallback(response) {
           $log.error({ type: response.status, msg: response.data });
       });
+    }
+
+    $scope.setUser = function() {
+      $log.debug($scope.user);
+      onChange();
     }
 
   }
