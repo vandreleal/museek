@@ -1,4 +1,7 @@
-node_modules
-npm-debug.log
-src/app/**/*.js
-src/app/**/*.js.map
+node_modules/
+bower_components/
+coverage/
+.sass-cache/
+.idea/
+.tmp/
+dist/

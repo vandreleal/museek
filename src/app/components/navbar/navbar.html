@@ -1,0 +1,10 @@
+<md-tabs
+  md-whiteframe="2"
+  md-stretch-tabs="auto"
+  md-selected="selectedIndex">
+<md-tab ng-repeat="tab in tabs"
+        ng-disabled="tab.disabled"
+        label="{{tab.label}}"
+        method="{{tab.method}}"
+        ng-click="setMethod(tab)"></md-tab>
+</md-tabs>
