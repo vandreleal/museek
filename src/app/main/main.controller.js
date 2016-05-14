@@ -33,7 +33,7 @@
 
       $http(request).then(function successCallback(response) {
           vm.userInfo = response.data;
-          $log.debug(vm.userInfo);
+          vm.totalPlaycount = response.data.user.playcount;
         },
         function errorCallback(response) {
           $log.error({ type: response.status, msg: response.data });
@@ -46,7 +46,8 @@
       $scope.$broadcast('onRetrieve', {
         user: vm.user,
         period: vm.period,
-        limit: vm.limit
+        limit: vm.limit,
+        totalPlaycount: 12055
       });
     }
   }

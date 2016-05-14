@@ -13,6 +13,11 @@
       'USER'    : '',
       'LIMIT'   : '10'
     })
+    .constant('placeholder', {
+      'ARTIST'  : 'http://img2-ak.lst.fm/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png',
+      'ALBUM'   : 'http://img2-ak.lst.fm/i/u/64s/c6f59c1e5e7240a4c0d427abd71f3dbb.png',
+      'TRACK'   : 'http://img2-ak.lst.fm/i/u/64s/4128a6eb29f94943c9d206c08e625904.png'
+    })
     .constant('apiMethods', {
       'GET_USER_INFO'           : 'user.getinfo',
       'GET_USER_RECENT_TRACKS'  : 'user.getrecenttracks',

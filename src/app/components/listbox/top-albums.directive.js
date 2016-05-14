@@ -9,12 +9,17 @@
     });
 
   /** @ngInject */
-  function TopAlbumsController($scope, $http, $log, config, apiMethods) {
+  function TopAlbumsController($scope, $http, $log, config, placeholder, apiMethods) {
     var ctrl = this;
+    ctrl.placeholder = placeholder.ALBUM;
 
     $scope.$on('onRetrieve', function(event, evtParam) {
       if(evtParam) {
         onUserChange(evtParam);
+
+        if(evtParam.totalPlaycount) {
+          ctrl.totalPlaycount = evtParam.totalPlaycount;
+        }
       }
     });
 
@@ -29,8 +34,6 @@
           limit   : evtParam.limit
         });
 
-      $log.debug("top-albums-> " + parameters);
-
       var requestTopAlbums = {
         method: 'GET',
         url: config.URL + parameters,
@@ -40,7 +43,6 @@
 
       $http(requestTopAlbums).then(function successCallback(response) {
           ctrl.albums = response.data['topalbums']['album'];
-          $log.debug(ctrl.albums);
         },
         function errorCallback(response) {
           $log.error({ type: response.status, msg: response.data });

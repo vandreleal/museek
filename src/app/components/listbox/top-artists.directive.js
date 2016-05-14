@@ -9,12 +9,17 @@
     });
 
   /** @ngInject */
-  function TopArtistsController($scope, $http, $log, config, apiMethods) {
+  function TopArtistsController($scope, $http, $log, config, placeholder, apiMethods) {
     var ctrl = this;
+    ctrl.placeholder = placeholder.ARTIST;
 
     $scope.$on('onRetrieve', function(event, evtParam) {
       if(evtParam) {
         onUserChange(evtParam);
+
+        if(evtParam.totalPlaycount) {
+          ctrl.totalPlaycount = evtParam.totalPlaycount;
+        }
       }
     });
 
@@ -29,8 +34,6 @@
           limit   : evtParam.limit
         });
 
-      $log.debug("top-artists-> " + parameters);
-
       var requestTopArtists = {
         method: 'GET',
         url: config.URL + parameters,
@@ -40,7 +43,6 @@
 
       $http(requestTopArtists).then(function successCallback(response) {
           ctrl.artists = response.data['topartists']['artist'];
-          $log.debug(ctrl.artists);
         },
         function errorCallback(response) {
           $log.error({ type: response.status, msg: response.data });
