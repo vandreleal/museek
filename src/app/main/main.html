@@ -10,7 +10,10 @@
     </md-input-container>
 
     <h2> {{ userInfo.user.realname }} </h2>
-    <h3> {{ userInfo.user.name }} </h3>
+    <a href="{{ userInfo.user.url }}" target="_blank">
+      <h3> {{ userInfo.user.name }} </h3>
+    </a>
+
     <a href="{{ userInfo.user.url }}" target="_blank">
       <img ng-src="{{ userInfo.user.image[2]['#text'] }}" class="md-avatar" alt="{{ userInfo.user.name }}" />
     </a>
