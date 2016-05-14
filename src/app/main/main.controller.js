@@ -6,25 +6,53 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, toastr) {
+  function MainController($scope, $timeout, $http, $log) {
     var vm = this;
 
-    vm.awesomeThings = [];
-    vm.classAnimation = '';
-    vm.creationDate = 1463170197149;
-    vm.showToastr = showToastr;
+    vm.method   = "user.gettopartists";
+    vm.user     = "vandrelc";
+    vm.api_key  = "5d78615f919a188a79598df5687242f4";
+    vm.format   = "json";
+    vm.period   = "overall"
+    vm.limit    = "10";
 
-    activate();
+    $scope.$on('onMethodChange', function(event, message) {
+      if(message) {
+        vm.method = message.method;
+        onMethodChange();
+      }
+    });
 
-    function activate() {
-      $timeout(function() {
-        vm.classAnimation = 'rubberBand';
-      }, 4000);
+    // activate();
+
+    function onMethodChange() {
+      var parameters =
+        $.param({
+          method  : vm.method,
+          user    : vm.user,
+          api_key : vm.api_key,
+          period  : vm.period,
+          limit   : vm.limit,
+          format  : vm.format
+        });
+
+      $log.debug(parameters);
+
+      var requestTop = {
+        method: 'GET',
+        url: "http://ws.audioscrobbler.com/2.0/?" + parameters,
+        headers: { },
+        data: { }
+      }
+
+      $http(requestTop).then(function successCallback(response) {
+          vm.userData = response.data;
+          $log.debug(vm.userData);
+        },
+        function errorCallback(response) {
+          $log.error({ type: response.status, msg: response.data });
+      });
     }
 
-    function showToastr() {
-      toastr.info('Fork <a href="https://github.com/Swiip/generator-gulp-angular" target="_blank"><b>generator-gulp-angular</b></a>');
-      vm.classAnimation = '';
-    }
   }
 })();

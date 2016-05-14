@@ -18,7 +18,7 @@
     return directive;
 
     /** @ngInject */
-    function NavbarController($scope, $log) {
+    function NavbarController($scope) {
 
       // Initialize scope variables.
       $scope.method = "user.gettopartists";
@@ -26,8 +26,8 @@
       $scope.tabs = [
         {label: "Top Artists",  method: "user.gettopartists"},
         {label: "Top Albums",   method: "user.gettopalbums"},
-        {label: "Top Tracks",   method: "user.gettracks"},
-        {label: "Top Tags",     method: "user.gettags"}
+        {label: "Top Tracks",   method: "user.gettoptracks"},
+        {label: "Top Tags",     method: "user.gettoptags"}
       ]
 
       // Set method function.
@@ -52,7 +52,6 @@
         }
 
         $scope.method = tab.method;
-        $log.debug(tab.method);
       }
 
       // Watch and broadcast method changes.
