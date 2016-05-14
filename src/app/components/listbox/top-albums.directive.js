@@ -20,7 +20,7 @@
 
     function onUserChange(evtParam) {
       var parameters =
-        $.param({
+        angular.element.param({
           method  : apiMethods.GET_USER_TOP_ALBUMS,
           api_key : config.API_KEY,
           format  : config.FORMAT,

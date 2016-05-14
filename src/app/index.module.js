@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('museek', ['ngResource', 'ngRoute', 'ngMaterial', 'toastr']);
+    .module('museek', ['ngAnimate', 'ngCookies', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ngRoute', 'ngMaterial', 'toastr']);
 
 })();
