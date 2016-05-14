@@ -12,6 +12,15 @@
 
   <core-navbar md-whiteframe="1"></core-navbar>
 
-  <div layout-align="center">
+  <div>
+
+      <md-list-item class="md-2-line" ng-repeat="item in userTop.topartists.artist">
+      <img ng-src="{{ item.image[0].['#text'] }}" class="md-avatar" alt="{{ item.images }}" />
+        <div class="md-list-item-text">
+          <h3>{{ item.name }}</h3>
+          <p>{{ item.playcount }}</p>
+        </div>
+      </md-list-item>
+
   </div>
 </md-content>

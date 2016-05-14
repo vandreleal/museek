@@ -16,16 +16,36 @@
     $scope.period   = "overall"
     $scope.limit    = "10";
 
-    $scope.$on('onMethodChange', function(event, message) {
-      if(message) {
-        $scope.method = message.method;
-        onChange();
-      }
-    });
-
     // activate();
 
-    function onChange() {
+    function onUserChange() {
+      var parameters =
+        $.param({
+          method  : "user.getinfo",
+          user    : $scope.user,
+          api_key : $scope.api_key,
+          format  : $scope.format
+        });
+
+      $log.debug(parameters);
+
+      var requestUserInfo = {
+        method: 'GET',
+        url: "http://ws.audioscrobbler.com/2.0/?" + parameters,
+        headers: { },
+        data: { }
+      }
+
+      $http(requestUserInfo).then(function successCallback(response) {
+          $scope.userInfo = response.data;
+          $log.debug($scope.userInfo);
+        },
+        function errorCallback(response) {
+          $log.error({ type: response.status, msg: response.data });
+      });
+    }
+
+    function onMethodChange() {
       var parameters =
         $.param({
           method  : $scope.method,
@@ -38,16 +58,16 @@
 
       $log.debug(parameters);
 
-      var requestTop = {
+      var requestUserTop = {
         method: 'GET',
         url: "http://ws.audioscrobbler.com/2.0/?" + parameters,
         headers: { },
         data: { }
       }
 
-      $http(requestTop).then(function successCallback(response) {
-          vm.userData = response.data;
-          $log.debug(vm.userData);
+      $http(requestUserTop).then(function successCallback(response) {
+          $scope.userTop = response.data;
+          $log.debug($scope.userTop);
         },
         function errorCallback(response) {
           $log.error({ type: response.status, msg: response.data });
@@ -56,8 +76,15 @@
 
     $scope.setUser = function() {
       $log.debug($scope.user);
-      onChange();
+      onUserChange();
+      onMethodChange();
     }
 
+    $scope.$on('onMethodChange', function(event, message) {
+      if(message) {
+        $scope.method = message.method;
+        onMethodChange();
+      }
+    });
   }
 })();
