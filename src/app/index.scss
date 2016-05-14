@@ -55,6 +55,14 @@ html {
   padding: 0.2em 0;
 }
 
+.wrapper {
+  padding: 48px 16px;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+
 /**
  *  Do not remove the comment below. It's the markers used by gulp-inject to inject
  *  all your sass files automatically

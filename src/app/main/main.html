@@ -1,5 +1,5 @@
-<md-content class="">
-  <section>
+<md-content>
+  <section class="wrapper">
     <h1>Museek</h1>
     <p>
       Cool headline here.
@@ -9,20 +9,17 @@
       <md-button class="md-raised md-primary" ng-click="setUser()">GET</md-button>
     </md-input-container>
 
-    <h2> {{ userInfo.user.realname }} </h2>
     <a href="{{ userInfo.user.url }}" target="_blank">
-      <h3> {{ userInfo.user.name }} </h3>
+      <h2> {{ userInfo.user.realname }} </h2>
     </a>
 
     <a href="{{ userInfo.user.url }}" target="_blank">
       <img ng-src="{{ userInfo.user.image[2]['#text'] }}" class="md-avatar" alt="{{ userInfo.user.name }}" />
     </a>
-  </section>
 
-  <core-navbar md-whiteframe="1"></core-navbar>
+    <core-navbar></core-navbar>
 
-  <div>
-
+    <div>
       <md-list-item class="md-2-line" ng-repeat="item in userTop.topartists.artist">
       <a href="{{ item.url }}" target="_blank">
         <img ng-src="{{ item.image[1]['#text'] }}" class="md-avatar" alt="{{ item.name }}" />
@@ -34,6 +31,6 @@
           <p>{{ item.playcount }}</p>
         </div>
       </md-list-item>
-
-  </div>
+    </div>
+  </section>
 </md-content>

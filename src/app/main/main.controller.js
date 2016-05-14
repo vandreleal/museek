@@ -10,7 +10,7 @@
     var vm = this;
 
     $scope.method   = "user.gettopartists";
-    $scope.user     = "vandrelc";
+    $scope.user     = "";
     $scope.api_key  = "5d78615f919a188a79598df5687242f4";
     $scope.format   = "json";
     $scope.period   = "overall"
