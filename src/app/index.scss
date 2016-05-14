@@ -74,7 +74,7 @@ p {
 }
 
 .page-header {
-  padding-top: 72px;
+  padding-top: 32px;
   background-image: url("/assets/default_header-edited.jpeg");
   background-size: cover;
   background-position: center center;
@@ -88,12 +88,19 @@ p {
   .btn-retrieve {
     padding: 8px 30px;
     border-radius: 25px;
+    font-size: 18px;
+    font-weight: 700;
     transform: translateY(32px);
   }
 }
 
 md-select {
   text-align: left;
+}
+
+.remove {
+  &-margin { margin: 0; }
+  &-padding { padding: 0; }
 }
 
 .text {

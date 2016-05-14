@@ -13,7 +13,7 @@
     var ctrl = this;
     ctrl.placeholder = placeholder.ARTIST;
 
-    $scope.$on('onRetrieve', function(event, evtParam) {
+    $scope.$on('onUserSearch', function(event, evtParam) {
       if(evtParam) {
         onUserChange(evtParam);
 

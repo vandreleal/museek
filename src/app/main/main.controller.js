@@ -43,7 +43,7 @@
     vm.setUser = function() {
       getUserInfo();
 
-      $scope.$broadcast('onRetrieve', {
+      $scope.$broadcast('onUserSearch', {
         user: vm.user,
         period: vm.period,
         limit: vm.limit,

@@ -3,15 +3,15 @@
 
   angular
     .module('museek')
-    .component('topAlbums', {
-      templateUrl: 'app/components/listbox/top-albums.html',
-      controller: TopAlbumsController
+    .component('recentTracks', {
+      templateUrl: 'app/components/listbox/recent-tracks.html',
+      controller: RecentTracks
     });
 
   /** @ngInject */
-  function TopAlbumsController($scope, $http, $log, config, placeholder, apiMethods) {
+  function RecentTracks($scope, $http, $log, config, placeholder, apiMethods) {
     var ctrl = this;
-    ctrl.placeholder = placeholder.ALBUM;
+    ctrl.placeholder = placeholder.TRACK;
 
     $scope.$on('onUserSearch', function(event, evtParam) {
       if(evtParam) {
@@ -26,7 +26,7 @@
     function onUserChange(evtParam) {
       var parameters =
         angular.element.param({
-          method  : apiMethods.GET_USER_TOP_ALBUMS,
+          method  : apiMethods.GET_USER_RECENT_TRACKS,
           api_key : config.API_KEY,
           format  : config.FORMAT,
           user    : evtParam.user,
@@ -34,15 +34,16 @@
           limit   : evtParam.limit
         });
 
-      var requestTopAlbums = {
+      var requestTopArtists = {
         method: 'GET',
         url: config.URL + parameters,
         headers: { },
         data: { }
       }
 
-      $http(requestTopAlbums).then(function successCallback(response) {
-          ctrl.albums = response.data['topalbums']['album'];
+      $http(requestTopArtists).then(function successCallback(response) {
+          $log.debug(response.data);
+          ctrl.recentTracks = response.data['recenttracks']['track'];
         },
         function errorCallback(response) {
           $log.error({ type: response.status, msg: response.data });
