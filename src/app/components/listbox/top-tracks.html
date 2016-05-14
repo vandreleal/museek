@@ -1,0 +1,18 @@
+<md-list-item class="md-2-line" ng-repeat="item in $ctrl.tracks">
+<a href="{{ item.url }}" target="_blank">
+  <img ng-if="item.image[1]['#text'] " ng-src="{{ item.image[1]['#text'] }}" class="md-avatar md-avatar-56" alt="{{ item.name }}" />
+  <img ng-if="!item.image[1]['#text'] " ng-src="http://img2-ak.lst.fm/i/u/64s/4128a6eb29f94943c9d206c08e625904.png" class="md-avatar md-avatar-56" alt="{{ item.name }}" />
+</a>
+  <div class="md-list-item-text">
+    <a href="{{ item.url }}" target="_blank">
+      <h3>{{ item.name }}</h3>
+      <p>{{ item.artist.name }}</p>
+    </a>
+  </div>
+
+  <div class="md-list-item-text text-right">
+    <p>{{ item.playcount | number:0 }} scrobbles</p>
+    <p>#{{ item['@attr']['rank'] }}</p>
+    <!-- <p>{{ (item.playcount / userInfo.user.playcount) * 100 | number:2 }}%</p> -->
+  </div>
+</md-list-item>
