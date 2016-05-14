@@ -57,9 +57,17 @@ html {
 
 .wrapper {
   padding: 48px 16px;
-  width: 100%;
   max-width: 700px;
   margin: 0 auto;
+}
+
+.page-header {
+  // background: url("/assets/default_header.jpg");
+}
+
+.profile {
+  max-height: 120px;
+  border-radius: 50%;
 }
 
 

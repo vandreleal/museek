@@ -26,8 +26,7 @@
       $scope.tabs = [
         {label: "Top Artists",  method: "user.gettopartists"},
         {label: "Top Albums",   method: "user.gettopalbums"},
-        {label: "Top Tracks",   method: "user.gettoptracks"},
-        {label: "Top Tags",     method: "user.gettoptags"}
+        {label: "Top Tracks",   method: "user.gettoptracks"}
       ]
 
       // Set method function.
@@ -42,9 +41,6 @@
             break;
 
           case "user.gettracks":
-            break;
-
-          case "user.gettags":
             break;
 
           default:

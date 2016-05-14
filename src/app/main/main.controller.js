@@ -16,7 +16,7 @@
     $scope.period   = "overall"
     $scope.limit    = "10";
 
-    $scope.periods = ["overall","7day","1month","3month","6month","12month"];
+    $scope.periods = ["overall","7day","1month","6month","12month"];
 
     // activate();
 
