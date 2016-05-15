@@ -1,6 +1,6 @@
 <header class="header" md-whiteframe="1">
   <div class="wrapper">
-    <img ng-src="{{ headerVm.logo }}" class="header-logo" alt="Museek's logo" />
+    <img ng-src="{{ headerVm.logo | trustAsResourceUrl }}" class="header-logo" alt="Museek's logo" />
     <h2 class="md-headline header-headline">{{ headerVm.headline }}</h2>
 
     <form ng-submit="headerVm.searchUser()" name="userForm">
@@ -15,7 +15,7 @@
 
         <md-input-container class="md-block" flex-gt-sm="30">
           <label>Limit (Optional)</label>
-          <input type="number" name="limit" ng-model="headerVm.limit" placeholder="Default: 10" max="100" maxlength="3">
+          <input type="number" name="limit" string-to-number ng-model="headerVm.limit" placeholder="Default: 10" max="100" maxlength="3">
           <!-- <div ng-messages="userForm.limit.$error" role="alert">
             <div ng-message="max">Maximum Limit: 100.</div>
           </div> -->

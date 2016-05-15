@@ -4,8 +4,8 @@
   </div>
 
   <a href="{{ item.url }}" target="_blank">
-    <img ng-if="item.image[1]['#text']" ng-src="{{ item.image[1]['#text'] }}" class="md-avatar md-avatar-56" alt="{{ item.name }}" />
-    <img ng-if="!item.image[1]['#text']" ng-src="{{ $ctrl.placeholderAlbum }}" class="md-avatar md-avatar-56" alt="{{ item.name }}" />
+    <img ng-if="item.image[1]['#text']" ng-src="{{ item.image[1]['#text'] | trustAsResourceUrl }}" class="md-avatar md-avatar-56" alt="{{ item.name }}" />
+    <img ng-if="!item.image[1]['#text']" ng-src="{{ $ctrl.placeholderAlbum | trustAsResourceUrl }}" class="md-avatar md-avatar-56" alt="{{ item.name }}" />
   </a>
 
   <div class="md-list-item-text">
@@ -17,7 +17,7 @@
     </a>
   </div>
 
-  <div flex="20" hide-xs class="md-list-item-text text-right">
+  <div flex="20" hide-xs class="md-list-item-text item-right">
     <p>{{ item.playcount | number:0 }} scrobbles</p>
     <p>{{ (item.playcount / $ctrl.totalPlaycount) * 100 | number:2 }}% of total</p>
   </div>

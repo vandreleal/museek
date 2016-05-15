@@ -6,8 +6,8 @@
     <div class="wrapper" ng-show="vm.data.user" ng-cloak>
       <div class="profile">
         <a href="{{ vm.data.user.url }}" target="_blank">
-          <img ng-if="vm.data.user.image[2]['#text']" ng-src="{{ vm.data.user.image[2]['#text'] }}" class="profile-img" alt="{{ vm.data.user.name }}" />
-          <img ng-if="!vm.data.user.image[2]['#text']" ng-src="{{ vm.placeholderUser }}" class="profile-img" alt="{{ vm.data.user.name }}" />
+          <img ng-if="vm.data.user.image[2]['#text']" ng-src="{{ vm.data.user.image[2]['#text'] | trustAsResourceUrl }}" class="profile-img" alt="{{ vm.data.user.name }}" />
+          <img ng-if="!vm.data.user.image[2]['#text']" ng-src="{{ vm.placeholderUser | trustAsResourceUrl }}" class="profile-img" alt="{{ vm.data.user.name }}" />
         </a>
 
         <a target="_blank"><h1 class="profile-name"> {{ vm.data.user.name }} </h1></a>

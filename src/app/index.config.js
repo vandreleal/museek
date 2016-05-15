@@ -7,22 +7,8 @@
       var appPrimaryPallete = $mdThemingProvider.extendPalette('grey', {
         'contrastDefaultColor': 'light',
         'contrastDarkColors': ['50']
-        // '50':  'ffffff',
-        // '100': 'f7f7f7',
-        // '200': '1080f2'
-        // '300': 'dddddd',
-        // '400': '6699cc',
-        // '500': '336699',
-        // '600': '336699',
-        // '700': '003366',
-        // '800': '444444',
-        // '900': '282828'
       });
-      var appAccentPallete = $mdThemingProvider.extendPalette('red', {
-        // 'contrastDefaultColor': 'light',
-        // 'contrastDarkColors': ['50'],
-        // '200': '1080f2'
-      });
+      var appAccentPallete = $mdThemingProvider.extendPalette('red', {});
 
       $mdThemingProvider.definePalette('appPrimaryTheme', appPrimaryPallete);
       $mdThemingProvider.definePalette('appAccentTheme',  appAccentPallete);
@@ -38,15 +24,16 @@
           'default': '900',
           'hue-1': '700'
         });
-
-      // Configure a theme for input
-      $mdThemingProvider.theme('input', 'default')
-        .primaryPalette('grey');
-
-      // // Configure a dark theme
-      // $mdThemingProvider.theme('primary-dark', 'default')
-      //   .primaryPalette('yellow')
-      //   .dark();
-    });
+    })
+    // .config(['$compileProvider', function( $compileProvider ) {
+    //   $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension):/);
+    // }])
+    .config(function($sceDelegateProvider) {
+     $sceDelegateProvider.resourceUrlWhitelist([
+       // Allow same origin resource loads.
+       'self',
+       // Allow loading from our assets domain.  Notice the difference between * and **.
+       'http://img2-ak.lst.fm/**']);
+     });
 
 })();

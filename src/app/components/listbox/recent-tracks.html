@@ -1,7 +1,7 @@
 <md-list-item class="md-2-line" ng-repeat="item in $ctrl.recentTracks">
   <a href="{{ item.url }}" target="_blank">
-    <img ng-if="item.image[1]['#text']" ng-src="{{ item.image[1]['#text'] }}" class="md-avatar md-avatar-56" alt="{{ item.name }}" />
-    <img ng-if="!item.image[1]['#text']" ng-src="{{ $ctrl.placeholderTrack }}" class="md-avatar md-avatar-56" alt="{{ item.name }}" />
+    <img ng-if="item.image[1]['#text']" ng-src="{{ item.image[1]['#text'] | trustAsResourceUrl }}" class="md-avatar md-avatar-56" alt="{{ item.name }}" />
+    <img ng-if="!item.image[1]['#text']" ng-src="{{ $ctrl.placeholderTrack | trustAsResourceUrl }}" class="md-avatar md-avatar-56" alt="{{ item.name }}" />
   </a>
 
   <div class="md-list-item-text">
@@ -16,7 +16,7 @@
     </p>
   </div>
 
-  <div flex="10" hide-xs class="md-list-item-text text-right">
+  <div flex="10" hide-xs class="md-list-item-text item-right">
     <md-icon ng-if="item.loved == 1" class="material-icons md-accent">favorite</md-icon>
     <md-icon ng-if="item.loved == 0" class="material-icons">favorite_border</md-icon>
   </div>
