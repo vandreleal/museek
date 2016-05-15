@@ -1,6 +1,8 @@
 .page-header {
   padding-top: 32px;
   background-image: url("/assets/default_header-edited.jpeg");
+  background-color: $md-blue-grey-50;
+  background-blend-mode: multiply;
   background-size: cover;
   background-position: center center;
   text-align: center;

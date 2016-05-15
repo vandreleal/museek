@@ -23,8 +23,7 @@
       headerVm.user   = config.USER;
       headerVm.period = config.PERIOD;
       headerVm.limit  = config.LIMIT;
-
-      headerVm.placeholder = placeholder.USER;
+      
       headerVm.periods = ["overall","7day","1month","6month","12month"];
 
       function getUserInfo() {

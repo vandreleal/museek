@@ -7,17 +7,17 @@
       <div class="text-center">
         <a href="{{ mainVm.data.user.url }}" target="_blank">
           <img ng-if="mainVm.data.user.image[2]['#text']" ng-src="{{ mainVm.data.user.image[2]['#text'] }}" class="profile" alt="{{ mainVm.data.user.name }}" />
-          <img ng-if="!mainVm.data.user.image[2]['#text']" ng-src="{{ mainVm.data.placeholder }}" class="profile" alt="{{ mainVm.data.user.name }}" />
+          <img ng-if="!mainVm.data.user.image[2]['#text']" ng-src="{{ mainVm.placeholder }}" class="profile" alt="{{ mainVm.data.user.name }}" />
         </a>
 
         <a href="{{ mainVm.data.user.url }}" target="_blank">
           <h1> {{ mainVm.data.user.realname }} </h1>
         </a>
 
-        <div class="description">
+        <!-- <div class="description">
           <p>{{ mainVm.data.user.name }}</p>
           <p>{{ mainVm.data.user.playcount | number:0 }} scrobbles</p>
-        </div>
+        </div> -->
       </div>
 
       <core-tabs></core-tabs>

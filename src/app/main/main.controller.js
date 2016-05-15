@@ -6,8 +6,9 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($scope, $http, $log) {
+  function MainController($scope, $http, $log, placeholder) {
     var mainVm = this;
+    mainVm.placeholder = placeholder.USER;
 
     $scope.$on('onSearch', function(event, evtParam) {
       mainVm.data = evtParam.data;
