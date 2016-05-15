@@ -6,13 +6,14 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($scope, $timeout, $http, $log, config, apiMethods) {
+  function MainController($scope, $timeout, $http, $log, config, placeholder, apiMethods) {
     var vm = this;
 
     vm.user   = config.USER;
     vm.period = config.PERIOD;
     vm.limit  = config.LIMIT;
 
+    vm.placeholder = placeholder.USER;
     vm.periods = ["overall","7day","1month","6month","12month"];
 
     function getUserInfo() {
@@ -32,8 +33,21 @@
       }
 
       $http(request).then(function successCallback(response) {
-          vm.userInfo = response.data;
-          vm.totalPlaycount = response.data.user.playcount;
+
+          if(!response.data.error) {
+            vm.userInfo = response.data;
+
+            $scope.$broadcast('onUserSearch', {
+              user: vm.user,
+              period: vm.period,
+              limit: vm.limit,
+              totalPlaycount: response.data.user.playcount
+            });
+          }
+          else {
+            vm.error = response.data.error;
+            vm.message = response.data.message;
+          }
         },
         function errorCallback(response) {
           $log.error({ type: response.status, msg: response.data });
@@ -42,13 +56,6 @@
 
     vm.setUser = function() {
       getUserInfo();
-
-      $scope.$broadcast('onUserSearch', {
-        user: vm.user,
-        period: vm.period,
-        limit: vm.limit,
-        totalPlaycount: 12055
-      });
     }
   }
 })();

@@ -42,7 +42,6 @@
       }
 
       $http(requestTopArtists).then(function successCallback(response) {
-          $log.debug(response.data);
           ctrl.recentTracks = response.data['recenttracks']['track'];
         },
         function errorCallback(response) {

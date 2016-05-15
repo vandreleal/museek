@@ -11,8 +11,7 @@
       restrict: 'E',
       templateUrl: 'app/components/tabs/tabs.html',
       controller: TabsController,
-      controllerAs: 'tabs.vm',
-      bindToController: true
+      controllerAs: 'tabs.vm'
     };
 
     return directive;

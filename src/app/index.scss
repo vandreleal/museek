@@ -5,7 +5,7 @@
 // bower:scss
 // endbower
 
-@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,500,700|Roboto:400,500,700,700italic,400italic);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,500,700|Roboto:400,500,700,700italic,400italic);
 @import '../../bower_components/material-colors/dist/colors.scss';
 
 @font-face {
@@ -86,7 +86,7 @@ p {
   }
 
   .btn-retrieve {
-    padding: 8px 30px;
+    padding: 8px 40px;
     border-radius: 25px;
     font-size: 18px;
     font-weight: 700;
@@ -110,14 +110,18 @@ md-select {
 }
 
 .page-content {
-  .user-profile {
-    margin-top: 72px;
-    margin-bottom: 36px;
-  }
+  margin-top: 72px;
+  margin-bottom: 36px;
 
   .user-listbox {
     margin-top: 16px;
     margin-bottom: 16px;
+  }
+
+  .message {
+    padding: 16px;
+    background-color: $md-red-50;
+    color: $md-red-900;
   }
 }
 

@@ -28,17 +28,18 @@
             </div>
           </md-input-container>
         </div>
-        <md-button class="md-raised md-accent btn-retrieve" ng-click="vm.setUser()">Retrieve</md-button>
+        <md-button class="md-raised md-accent btn-retrieve" ng-click="vm.setUser()">Search</md-button>
       </form>
     </div>
   </header>
 
   <section class="page-content">
-    <div class="wrapper">
 
-      <div ng-show="vm.userInfo" class="user-profile text-center">
+    <div class="wrapper" ng-show="vm.userInfo">
+      <div class="text-center">
         <a href="{{ vm.userInfo.user.url }}" target="_blank">
-          <img ng-src="{{ vm.userInfo.user.image[2]['#text'] }}" class="profile" alt="{{ vm.userInfo.user.name }}" />
+          <img ng-if="vm.userInfo.user.image[2]['#text']" ng-src="{{ vm.userInfo.user.image[2]['#text'] }}" class="profile" alt="{{ vm.userInfo.user.name }}" />
+          <img ng-if="!vm.userInfo.user.image[2]['#text']" ng-src="{{ vm.placeholder }}" class="profile" alt="{{ vm.userInfo.user.name }}" />
         </a>
 
         <a href="{{ vm.userInfo.user.url }}" target="_blank">
@@ -48,8 +49,17 @@
         <p>{{ vm.userInfo.user.playcount | number:0 }} scrobbles</p>
       </div>
 
-      <core-tabs ng-show="vm.userInfo"></core-tabs>
-
+      <core-tabs></core-tabs>
     </div>
+
+    <div class="wrapper text-center">
+      <div class="message">
+        <h1>Error: #{{ vm.error }}</h1>
+        <p class="md-subhead">{{ vm.message}}<p>
+      </div>
+    </div>
+
   </section>
+
+  <core-footer></core-footer>
 </md-content>
