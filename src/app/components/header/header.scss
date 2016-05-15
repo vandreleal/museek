@@ -46,6 +46,7 @@ md-option {
 }
 
 md-progress-linear {
+  position: fixed;
+  top: 0;
   height: 4px;
-  // transform: translateY(-4px);
 }
