@@ -47,22 +47,18 @@
 
 /* Rules for sizing the icon. */
 .material-icons.md-18 { font-size: 18px; }
+.material-icons.md-18 { font-size: 18px; }
 .material-icons.md-24 { font-size: 24px; }
 .material-icons.md-36 { font-size: 36px; }
 .material-icons.md-48 { font-size: 48px; }
 
-html {
-  font-family: 'Roboto Slab', serif;
-}
-
-p {
-  color: $md-grey-700;
-}
+html { font-family: 'Roboto Slab', serif; }
+p    { color: $md-grey-700; }
 
 .browsehappy {
   margin: 0.2em 0;
-  background: $md-grey-300;
-  color: $md-grey-900;
+  background: $md-amber-200;
+  color: $md-grey-700;
   padding: 0.2em 0;
 }
 
@@ -73,24 +69,18 @@ p {
   margin: 0 auto;
 }
 
-.remove {
-  &-margin { margin: 0; }
-  &-padding { padding: 0; }
-}
-
 .text {
   &-left   { text-align: left; }
   &-center { text-align: center; }
   &-right  { text-align: right; }
 }
 
-.page-content {
-  padding-top: 24px;
-  padding-bottom: 24px;
+.content {
+  padding-top: 48px;
 
   .profile {
-    padding-top: 72px;
-    padding-bottom: 36px;
+    padding-top: 16px;
+    padding-bottom: 32px;
 
     &-name {
       margin-top: 8px;
@@ -106,13 +96,11 @@ p {
       max-height: 120px;
       border-radius: 50%;
     }
-
   }
 
   .message {
     padding: 16px;
-    margin-top: 48px;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
     background-color: $md-red-50;
     border-radius: 3px;
     color: $md-red-900;

@@ -1,24 +1,32 @@
-.page-header {
+.header {
   padding-top: 32px;
-  background-image: url("/assets/default_header-edited.jpeg");
+  margin-bottom: 32px;
+  background-image: url("/assets/images/default_header-edited.jpeg");
   background-color: $md-blue-grey-50;
   background-blend-mode: multiply;
   background-size: cover;
   background-position: center center;
   text-align: center;
 
-  .description {
-    margin-top: 24px;
-    margin-bottom: 48px;
+  &-logo {
+    width: auto;
+    height: 120px;
+    margin-top: 16px;
+    margin-bottom: 16px;
   }
 
-  .btn-retrieve {
-    padding: 8px 40px;
-    border-radius: 25px;
-    font-size: 18px;
-    font-weight: 700;
-    transform: translateY(32px);
+  &-description {
+    margin-top: 16px;
+    margin-bottom: 48px;
   }
+}
+
+.btn-search {
+  padding: 8px 40px;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: 700;
+  transform: translateY(32px);
 }
 
 md-select {

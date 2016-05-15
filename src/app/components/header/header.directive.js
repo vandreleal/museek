@@ -72,6 +72,11 @@
             });
 
             if (!response.data.error) {
+
+              if(!headerVm.limit) {
+                headerVm.limit = 50;
+              }
+
               $scope.$broadcast('onUserSearch', {
                 user: headerVm.user,
                 period: headerVm.period,

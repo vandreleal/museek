@@ -3,11 +3,11 @@ md-tabs {
 }
 
 a {
-  text-decoration: none;
   color: $md-grey-900;
+  text-decoration: none;
 
   &:hover, &:focus, &:active {
-    color: $md-red-900 !important;
+    color: $md-red-900;
     text-decoration: underline;
   }
 }

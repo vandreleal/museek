@@ -44,7 +44,6 @@
 
       $http(requestTopTracks).then(function successCallback(response) {
           ctrl.tracks = response.data['toptracks']['track'];
-          $log.debug(ctrl.tracks);
         },
         function errorCallback(response) {
           $log.error({ type: response.status, msg: response.data });

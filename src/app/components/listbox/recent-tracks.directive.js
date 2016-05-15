@@ -33,7 +33,8 @@
           api_key : config.API_KEY,
           format  : config.FORMAT,
           user    : evtParam.user,
-          limit   : evtParam.limit
+          limit   : evtParam.limit,
+          extended : 1
         });
 
       var requestTopArtists = {
@@ -45,6 +46,7 @@
 
       $http(requestTopArtists).then(function successCallback(response) {
           ctrl.recentTracks = response.data['recenttracks']['track'];
+          $log.debug(ctrl.recentTracks);
         },
         function errorCallback(response) {
           $log.error({ type: response.status, msg: response.data });

@@ -5,15 +5,19 @@
   </a>
 
   <div class="md-list-item-text">
-    <a href="{{ item.url }}" target="_blank">
-      <span>
-        {{ item.artist['#text'] }} - {{ item.name }}
-      </span>
-    </a>
-    <p ng-if="item.date['#text']">{{ item.date['#text'] }}</p>
-    <p ng-if="!item.date['#text']">
-      <img ng-src="{{ $ctrl.placeholderNow }}" alt="Playing now" />
-      <span>Playing now</span>
+    <a href="{{ item.artist.url }}" target="_blank"><span>{{ item.artist.name }}</span></a>
+    <span>&nbsp;&mdash;&nbsp;</span>
+    <a href="{{ item.url }}" target="_blank"><span>{{ item.name }}</span></a>
+
+    <p ng-if="item.date['#text']">{{ (item.date.uts * 1000) | date:'MMM d, y - hh:mm:ss' }}</p>
+    <p ng-if="item['@attr'].nowplaying">
+      <img ng-src="{{ $ctrl.placeholderNow }}" alt="Playing Now"/>
+      <span>Scrobbling Now</span>
     </p>
+  </div>
+
+  <div flex="10" hide-xs class="md-list-item-text text-right">
+    <md-icon ng-if="item.loved == 1" class="material-icons md-accent">favorite</md-icon>
+    <md-icon ng-if="item.loved == 0" class="material-icons">favorite_border</md-icon>
   </div>
 </md-list-item>

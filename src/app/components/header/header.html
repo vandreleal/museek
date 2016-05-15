@@ -1,14 +1,26 @@
-<header class="page-header" md-whiteframe="2">
+<header class="header" md-whiteframe="2">
   <div class="wrapper">
-    <h1 class="md-display-3">Museek</h1>
-    <h2 class="md-headline description">Last.fm user stats.</h2>
+    <!-- <h1 class="md-display-3">Museek</h1> -->
+    <img ng-src="/assets/images/logo.png" class="header-logo" alt="Museek's logo" />
+    <h2 class="md-headline header-description">Last.fm user stats.</h2>
 
     <form name="userForm">
       <div layout-gt-sm="row">
-        <md-input-container class="md-block" flex-gt-sm="50">
+        <md-input-container class="md-block" flex-gt-sm="40">
           <label>Username</label>
           <input ng-model="headerVm.user" min="1" placeholder="e.g. vandrelc or dungahk">
         </md-input-container>
+
+        <md-input-container class="md-block" flex-gt-sm="30">
+          <label>Limit</label>
+          <input name="queryLimit" ng-model="headerVm.limit" placeholder="Default: 10" required min="1" max="100" ng-pattern="/^[0-9]$/">
+          <div ng-messages="userForm.queryLimit.$error" role="alert" multiple>
+            <div ng-message="pattern" class="my-message">That doesn't look like a valid limit.</div>
+            <div ng-message="min">Value should be greater than 0.</div>
+            <div ng-message="max">Value should be less than 100.</div>
+          </div>
+        </md-input-container>
+
         <md-input-container class="md-block" flex-gt-sm="30">
           <label>Period</label>
           <md-select ng-model="headerVm.period">
@@ -17,17 +29,8 @@
             </md-option>
           </md-select>
         </md-input-container>
-        <md-input-container class="md-block" flex-gt-sm="20">
-          <label>Limit</label>
-          <input name="queryLimit" ng-model="headerVm.limit" placeholder="Default: 10" min="1" max="100" ng-pattern="/^[0-9]{1,3}$/" md-maxlength="3">
-          <div ng-messages="userForm.queryLimit.$error" role="alert" multiple>
-            <div ng-message="pattern" class="my-message">That doesn't look like a valid limit.</div>
-            <div ng-message="min">Value should be greater than 0</div>
-            <div ng-message="max">Value should be less than 100.</div>
-          </div>
-        </md-input-container>
       </div>
-      <md-button class="md-raised md-accent btn-retrieve" ng-click="headerVm.searchUser()">
+      <md-button class="md-raised md-accent btn-search" ng-click="headerVm.searchUser()">
         <md-icon class="material-icons md-24">search</md-icon>
         <span>Search</span>
       </md-button>
