@@ -32,3 +32,15 @@
 md-input-container {
   text-align: left;
 }
+
+md-option {
+  &:hover {
+    background-color: $md-blue-grey-50;
+  }
+
+  &:focus {
+    background-color: $md-red-900;
+    font-weight: 700;
+    color: $md-white !important;
+  }
+}

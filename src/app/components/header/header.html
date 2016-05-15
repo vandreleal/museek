@@ -7,22 +7,22 @@
       <div layout-gt-sm="row">
         <md-input-container class="md-block" flex-gt-sm="40">
           <label>Username</label>
-          <input autofocus name="username" ng-model="headerVm.user" required placeholder="e.g. vandrelc or dungahk">
+          <input type="text" autofocus name="username" ng-model="headerVm.user" required placeholder="e.g. vandrelc or dungahk" max-length="64">
           <div ng-messages="userForm.username.$error" role="alert">
             <div ng-message="required">This field is required.</div>
           </div>
         </md-input-container>
 
         <md-input-container class="md-block" flex-gt-sm="30">
-          <label>Limit</label>
-          <input name="limit" ng-model="headerVm.limit" placeholder="Default: 10" max="100">
+          <label>Limit (Optional)</label>
+          <input type="number" name="limit" ng-model="headerVm.limit" placeholder="Default: 10" max="100" maxlength="3">
           <div ng-messages="userForm.limit.$error" role="alert">
-            <div ng-message="max">Value should be less than 100.</div>
+            <div ng-message="max">Maximum Limit: 100.</div>
           </div>
         </md-input-container>
 
         <md-input-container class="md-block" flex-gt-sm="30">
-          <label>Period</label>
+          <label>Period (Optional)</label>
           <md-select ng-model="headerVm.period">
             <md-option ng-repeat="period in headerVm.periods" value="{{ period.parameter }}">
               {{ period.label }}
