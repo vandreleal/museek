@@ -1,6 +1,6 @@
 .header {
-  padding-top: 32px;
-  margin-bottom: 32px;
+  padding-top: 48px;
+  margin-bottom: 48px;
   background-image: url("/assets/images/bg-header.jpg");
   background-size: cover;
   background-position: center center;
@@ -11,12 +11,11 @@
   &-logo {
     width: auto;
     height: 120px;
-    margin-top: 16px;
   }
 
   &-headline {
     margin-top: 32px;
-    margin-bottom: 16px;
+    margin-bottom: 32px;
   }
 }
 
