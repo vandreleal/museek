@@ -1,7 +1,7 @@
 <md-list-item class="md-2-line" ng-repeat="item in $ctrl.artists">
 <a href="{{ item.url }}" target="_blank">
   <img ng-if="item.image[1]['#text']" ng-src="{{ item.image[1]['#text'] }}" class="md-avatar md-avatar-56" alt="{{ item.name }}" />
-  <img ng-if="!item.image[1]['#text']" ng-src="{{ $ctrl.placeholder }}" class="md-avatar md-avatar-56" alt="{{ item.name }}" />
+  <img ng-if="!item.image[1]['#text']" ng-src="{{ $ctrl.placeholderArtist }}" class="md-avatar md-avatar-56" alt="{{ item.name }}" />
 </a>
   <div class="md-list-item-text">
     <a href="{{ item.url }}" target="_blank">

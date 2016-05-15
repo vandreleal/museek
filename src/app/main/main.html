@@ -7,7 +7,7 @@
       <div class="text-center">
         <a href="{{ mainVm.data.user.url }}" target="_blank">
           <img ng-if="mainVm.data.user.image[2]['#text']" ng-src="{{ mainVm.data.user.image[2]['#text'] }}" class="profile" alt="{{ mainVm.data.user.name }}" />
-          <img ng-if="!mainVm.data.user.image[2]['#text']" ng-src="{{ mainVm.placeholder }}" class="profile" alt="{{ mainVm.data.user.name }}" />
+          <img ng-if="!mainVm.data.user.image[2]['#text']" ng-src="{{ mainVm.placeholderUser }}" class="profile" alt="{{ mainVm.data.user.name }}" />
         </a>
 
         <a href="{{ mainVm.data.user.url }}" target="_blank">
