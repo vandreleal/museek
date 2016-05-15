@@ -17,8 +17,7 @@
     return directive;
 
     /** @ngInject */
-    function TabsController() {
-    }
+    function TabsController() {}
   }
 
 })();

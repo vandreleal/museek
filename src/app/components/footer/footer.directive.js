@@ -11,13 +11,18 @@
       restrict: 'E',
       templateUrl: 'app/components/footer/footer.html',
       controller: FooterController,
-      controllerAs: 'footer.vm'
+      controllerAs: 'footerVm'
     };
 
     return directive;
 
     /** @ngInject */
     function FooterController() {
+      var footerVm = this;
+
+      footerVm.entry = "Museek";
+      footerVm.appUrl = "dubjay.2016.angularattack.io"
+      footerVm.teamUrl = "www.angularattack.com/entries/3165-dubjay"
     }
   }
 

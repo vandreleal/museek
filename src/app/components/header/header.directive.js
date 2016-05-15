@@ -27,28 +27,22 @@
       headerVm.period = config.PERIOD;
       headerVm.limit = config.LIMIT;
 
-      headerVm.periods = [
-        {
-          label: "Overall",
-          parameter: "overall"
-        },
-        {
-          label: "Last Week",
-          parameter: "7day"
-        },
-        {
-          label: "Last Month",
-          parameter: "1month"
-        },
-        {
-          label: "Last 6 Months",
-          parameter: "6month"
-        },
-        {
-          label: "Last Year",
-          parameter: "12month"
-        }
-      ];
+      headerVm.periods = [{
+        label: "Overall",
+        parameter: "overall"
+      }, {
+        label: "Last Week",
+        parameter: "7day"
+      }, {
+        label: "Last Month",
+        parameter: "1month"
+      }, {
+        label: "Last 6 Months",
+        parameter: "6month"
+      }, {
+        label: "Last Year",
+        parameter: "12month"
+      }];
 
       function getUserInfo() {
         var parameters =
@@ -73,7 +67,7 @@
 
             if (!response.data.error) {
 
-              if(!headerVm.limit) {
+              if (!headerVm.limit) {
                 headerVm.limit = config.LIMIT;
               }
 

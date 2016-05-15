@@ -14,10 +14,10 @@
     ctrl.placeholderAlbum = placeholder.ALBUM;
 
     $scope.$on('onUserSearch', function(event, evtParam) {
-      if(evtParam) {
+      if (evtParam) {
         onUserChange(evtParam);
 
-        if(evtParam.totalPlaycount) {
+        if (evtParam.totalPlaycount) {
           ctrl.totalPlaycount = evtParam.totalPlaycount;
         }
       }
@@ -26,27 +26,30 @@
     function onUserChange(evtParam) {
       var parameters =
         angular.element.param({
-          method  : apiMethods.GET_USER_TOP_ALBUMS,
-          api_key : config.API_KEY,
-          format  : config.FORMAT,
-          user    : evtParam.user,
-          period  : evtParam.period,
-          limit   : evtParam.limit
+          method: apiMethods.GET_USER_TOP_ALBUMS,
+          api_key: config.API_KEY,
+          format: config.FORMAT,
+          user: evtParam.user,
+          period: evtParam.period,
+          limit: evtParam.limit
         });
 
       var requestTopAlbums = {
         method: 'GET',
         url: config.URL + parameters,
-        headers: { },
-        data: { }
+        headers: {},
+        data: {}
       }
 
       $http(requestTopAlbums).then(function successCallback(response) {
           ctrl.albums = response.data['topalbums']['album'];
         },
         function errorCallback(response) {
-          $log.error({ type: response.status, msg: response.data });
-      });
+          $log.error({
+            type: response.status,
+            msg: response.data
+          });
+        });
     }
   }
 })();

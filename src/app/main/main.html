@@ -1,10 +1,10 @@
-<main ng-cloak>
+<main role="main" ng-cloak>
   <md-content flex layout-fill>
+
     <core-header></core-header>
 
     <section class="content">
-
-      <div class="wrapper" ng-show="vm.data.user">
+      <div class="wrapper" ng-show="vm.data.user" ng-cloak>
         <div class="profile">
           <a href="{{ vm.data.user.url }}" target="_blank">
             <img ng-if="vm.data.user.image[2]['#text']" ng-src="{{ vm.data.user.image[2]['#text'] | trustAsResourceUrl }}" class="profile-img" alt="{{ vm.data.user.name }}" />
@@ -22,11 +22,13 @@
       <div class="wrapper" ng-show="vm.data.error" ng-cloak>
         <div class="message">
           <h1>Error: #{{ vm.data.error }}</h1>
-          <p class="md-subhead">{{ vm.data.message}}. Please try again with a different username.<p>
+          <p class="md-subhead">{{ vm.data.message}}. Please try again with a different username.
+            <p>
         </div>
       </div>
     </section>
 
     <core-footer></core-footer>
+
   </md-content>
 </main>

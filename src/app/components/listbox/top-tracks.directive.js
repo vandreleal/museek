@@ -14,10 +14,10 @@
     ctrl.placeholderTrack = placeholder.TRACK;
 
     $scope.$on('onUserSearch', function(event, evtParam) {
-      if(evtParam) {
+      if (evtParam) {
         onUserChange(evtParam);
 
-        if(evtParam.totalPlaycount) {
+        if (evtParam.totalPlaycount) {
           ctrl.totalPlaycount = evtParam.totalPlaycount;
         }
       }
@@ -27,27 +27,30 @@
 
       var parameters =
         angular.element.param({
-          method  : apiMethods.GET_USER_TOP_TRACKS,
-          api_key : config.API_KEY,
-          format  : config.FORMAT,
-          user    : evtParam.user,
-          period  : evtParam.period,
-          limit   : evtParam.limit
+          method: apiMethods.GET_USER_TOP_TRACKS,
+          api_key: config.API_KEY,
+          format: config.FORMAT,
+          user: evtParam.user,
+          period: evtParam.period,
+          limit: evtParam.limit
         });
 
       var requestTopTracks = {
         method: 'GET',
         url: config.URL + parameters,
-        headers: { },
-        data: { }
+        headers: {},
+        data: {}
       }
 
       $http(requestTopTracks).then(function successCallback(response) {
           ctrl.tracks = response.data['toptracks']['track'];
         },
         function errorCallback(response) {
-          $log.error({ type: response.status, msg: response.data });
-      });
+          $log.error({
+            type: response.status,
+            msg: response.data
+          });
+        });
     }
   }
 })();

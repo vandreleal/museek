@@ -1,12 +1,7 @@
 <!doctype html>
 <html ng-app="museek">
-  <head>
-    <!-- <script type="text/javascript">
-      var host = "dubjay.2016.angularattack.io";
-      if ((host == window.location.host) && (window.location.protocol != "http:"))
-        window.location.protocol = "http";
-    </script> -->
 
+  <head>
     <base href="/">
     <meta charset="utf-8">
     <title>Museek</title>
@@ -26,10 +21,11 @@
     <!-- endinject -->
     <!-- endbuild -->
   </head>
+
   <body flex layout="column" ng-cloak>
     <!--[if lt IE 10]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+      <![endif]-->
 
     <md-content flex layout="row">
       <div ng-view flex layout="column" tabindex="-1"></div>
@@ -52,4 +48,5 @@
     <!-- endbuild -->
 
   </body>
+
 </html>
