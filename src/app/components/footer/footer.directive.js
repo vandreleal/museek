@@ -20,6 +20,7 @@
     function FooterController() {
       var footerVm = this;
 
+      footerVm.logo = "/assets/images/favicon.png";
       footerVm.entry = "Museek";
       footerVm.appUrl = "dubjay.2016.angularattack.io"
       footerVm.teamUrl = "www.angularattack.com/entries/3165-dubjay"

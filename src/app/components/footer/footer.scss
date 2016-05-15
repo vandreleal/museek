@@ -1,10 +1,16 @@
 footer {
-  margin-top: 32px;
+  margin-top: 48px;
   margin-bottom: 48px;
   text-align: center;
 
   p {
     margin-top: 8px;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
+  }
+
+  .logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
   }
 }
