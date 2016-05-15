@@ -11,6 +11,7 @@
   /** @ngInject */
   function TopTracksController($scope, $http, $log, config, placeholder, apiMethods) {
     var ctrl = this;
+    ctrl.tracks = [];
     ctrl.placeholderTrack = placeholder.TRACK;
 
     $scope.$on('onUserSearch', function(event, evtParam) {

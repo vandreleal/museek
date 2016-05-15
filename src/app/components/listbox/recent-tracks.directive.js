@@ -11,7 +11,7 @@
   /** @ngInject */
   function RecentTracks($scope, $http, $log, config, placeholder, apiMethods) {
     var ctrl = this;
-
+    ctrl.recentTracks = [];
     ctrl.placeholderNow = placeholder.NOW;
     ctrl.placeholderTrack = placeholder.TRACK;
     ctrl.letterLimit = 30;

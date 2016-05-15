@@ -11,6 +11,7 @@
   /** @ngInject */
   function TopAlbumsController($scope, $http, $log, config, placeholder, apiMethods) {
     var ctrl = this;
+    ctrl.albums = [];
     ctrl.placeholderAlbum = placeholder.ALBUM;
 
     $scope.$on('onUserSearch', function(event, evtParam) {

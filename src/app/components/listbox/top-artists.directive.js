@@ -11,6 +11,7 @@
   /** @ngInject */
   function TopArtistsController($scope, $http, $log, config, placeholder, apiMethods) {
     var ctrl = this;
+    ctrl.artists = [];
     ctrl.placeholderArtist = placeholder.ARTIST;
 
     $scope.$on('onUserSearch', function(event, evtParam) {
