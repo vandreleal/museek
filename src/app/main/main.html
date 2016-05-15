@@ -1,10 +1,10 @@
 <main role="main" ng-cloak>
   <md-content flex layout-fill>
 
-    <core-header></core-header ng-cloak>
+    <core-header ng-cloak></core-header>
 
-    <section class="content"k>
-      <div class="wrapper" ng-show="vm.data.user">
+    <section class="content">
+      <div class="wrapper" ng-show="vm.data.user" ng-cloak>
         <div class="profile">
           <a href="{{ vm.data.user.url }}" target="_blank">
             <img ng-if="vm.data.user.image[2]['#text']" ng-src="{{ vm.data.user.image[2]['#text'] | trustAsResourceUrl }}" class="profile-img" alt="{{ vm.data.user.name }}" />
@@ -19,7 +19,7 @@
         <core-tabs ng-cloak></core-tabs>
       </div>
 
-      <div class="wrapper" ng-show="vm.data.error">
+      <div class="wrapper" ng-show="vm.data.error" ng-cloak>
         <div class="message">
           <md-icon class="material-icons md-48 md-accent">error_outline</md-icon>
           <h1 class="md-title">{{ vm.data.message}}<h1>
@@ -27,7 +27,7 @@
       </div>
     </section>
 
-    <core-footer></core-footer ng-cloak>
+    <core-footer ng-cloak></core-footer>
 
   </md-content>
 </main>
