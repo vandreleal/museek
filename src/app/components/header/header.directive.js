@@ -20,26 +20,50 @@
     function HeaderController($scope, $timeout, $http, $log, config, placeholder, apiMethods) {
       var headerVm = this;
 
-      headerVm.user   = config.USER;
+      headerVm.user = config.USER;
       headerVm.period = config.PERIOD;
-      headerVm.limit  = config.LIMIT;
-      
-      headerVm.periods = ["overall","7day","1month","6month","12month"];
+      headerVm.limit = config.LIMIT;
+
+      headerVm.periods = ["overall", "7day", "1month", "6month", "12month"];
+
+      // Refresh
+      headerVm.periods = [
+        {
+          label: "Overall",
+          parameter: "overall"
+        },
+        {
+          label: "Last Week",
+          parameter: "7day"
+        },
+        {
+          label: "Last Month",
+          parameter: "1month"
+        },
+        {
+          label: "Last 6 Months",
+          parameter: "6month"
+        },
+        {
+          label: "Last Year",
+          parameter: "12month"
+        }
+      ];
 
       function getUserInfo() {
         var parameters =
           angular.element.param({
-            method  : apiMethods.GET_USER_INFO,
-            user    : headerVm.user,
-            api_key : config.API_KEY,
-            format  : config.FORMAT
+            method: apiMethods.GET_USER_INFO,
+            user: headerVm.user,
+            api_key: config.API_KEY,
+            format: config.FORMAT
           });
 
         var request = {
           method: 'GET',
           url: config.URL + parameters,
-          headers: { },
-          data: { }
+          headers: {},
+          data: {}
         }
 
         $http(request).then(function successCallback(response) {
@@ -47,7 +71,7 @@
               data: response.data
             });
 
-            if(!response.data.error) {
+            if (!response.data.error) {
               $scope.$broadcast('onUserSearch', {
                 user: headerVm.user,
                 period: headerVm.period,
@@ -57,11 +81,14 @@
             }
           },
           function errorCallback(response) {
-            $log.error({ type: response.status, msg: response.data });
-        });
+            $log.error({
+              type: response.status,
+              msg: response.data
+            });
+          });
       }
 
-      headerVm.setUser = function() {
+      headerVm.searchUser = function() {
         getUserInfo();
       }
     }

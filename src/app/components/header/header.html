@@ -12,8 +12,8 @@
         <md-input-container class="md-block" flex-gt-sm="30">
           <label>Period</label>
           <md-select ng-model="headerVm.period">
-            <md-option ng-repeat="period in headerVm.periods">
-              {{ period }}
+            <md-option ng-repeat="period in headerVm.periods" value="{{ period.parameter }}">
+              {{ period.label }}
             </md-option>
           </md-select>
         </md-input-container>
@@ -27,7 +27,10 @@
           </div>
         </md-input-container>
       </div>
-      <md-button class="md-raised md-accent btn-retrieve" ng-click="headerVm.setUser()">Search</md-button>
+      <md-button class="md-raised md-accent btn-retrieve" ng-click="headerVm.searchUser()">
+        <md-icon class="material-icons md-24">search</md-icon>
+        <span>Search</span>
+      </md-button>
     </form>
   </div>
 </header>
