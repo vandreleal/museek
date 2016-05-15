@@ -12,6 +12,7 @@
   function RecentTracks($scope, $http, $log, config, placeholder, apiMethods) {
     var ctrl = this;
     ctrl.placeholder = placeholder.TRACK;
+    ctrl.letterLimit = 30;
 
     $scope.$on('onUserSearch', function(event, evtParam) {
       if(evtParam) {
@@ -30,7 +31,6 @@
           api_key : config.API_KEY,
           format  : config.FORMAT,
           user    : evtParam.user,
-          period  : evtParam.period,
           limit   : evtParam.limit
         });
 

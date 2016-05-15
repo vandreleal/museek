@@ -1,52 +1,22 @@
 <md-content flex layout-fill>
   <header class="page-header" md-whiteframe="2">
-    <div class="wrapper">
-      <h1 class="md-display-3">Museek</h1>
-      <h2 class="md-headline description">Last.fm user stats.</h2>
-
-      <form name="userForm">
-        <div layout-gt-sm="row">
-          <md-input-container class="md-block" flex-gt-sm="50">
-            <label>Username</label>
-            <input ng-model="vm.user" placeholder="e.g. vandrelc or dungahk">
-          </md-input-container>
-          <md-input-container class="md-block" flex-gt-sm="30">
-            <label>Period</label>
-            <md-select ng-model="vm.period">
-              <md-option ng-repeat="period in vm.periods">
-                {{ period }}
-              </md-option>
-            </md-select>
-          </md-input-container>
-          <md-input-container class="md-block" flex-gt-sm="20">
-            <label>Limit</label>
-            <input name="queryLimit" ng-model="vm.limit" placeholder="Default: 10" min="1" max="100" ng-pattern="/^[0-9]{1,3}$/" md-maxlength="3">
-            <div ng-messages="userForm.queryLimit.$error" role="alert" multiple>
-              <div ng-message="pattern" class="my-message">That doesn't look like a valid limit.</div>
-              <div ng-message="min">Value should be greater than 0</div>
-              <div ng-message="max">Value should be less than 100.</div>
-            </div>
-          </md-input-container>
-        </div>
-        <md-button class="md-raised md-accent btn-retrieve" ng-click="vm.setUser()">Search</md-button>
-      </form>
-    </div>
+    <core-header></core-header>
   </header>
 
   <section class="page-content">
 
-    <div class="wrapper" ng-show="vm.userInfo">
+    <div class="wrapper" ng-show="mainVm.data" ng-cloak>
       <div class="text-center">
-        <a href="{{ vm.userInfo.user.url }}" target="_blank">
-          <img ng-if="vm.userInfo.user.image[2]['#text']" ng-src="{{ vm.userInfo.user.image[2]['#text'] }}" class="profile" alt="{{ vm.userInfo.user.name }}" />
-          <img ng-if="!vm.userInfo.user.image[2]['#text']" ng-src="{{ vm.placeholder }}" class="profile" alt="{{ vm.userInfo.user.name }}" />
+        <a href="{{ mainVm.data.user.url }}" target="_blank">
+          <img ng-if="mainVm.data.user.image[2]['#text']" ng-src="{{ mainVm.data.user.image[2]['#text'] }}" class="profile" alt="{{ mainVm.data.user.name }}" />
+          <img ng-if="!mainVm.data.user.image[2]['#text']" ng-src="{{ mainVm.data.placeholder }}" class="profile" alt="{{ mainVm.data.user.name }}" />
         </a>
 
-        <a href="{{ vm.userInfo.user.url }}" target="_blank">
-          <h1> {{ vm.userInfo.user.realname }} </h1>
+        <a href="{{ mainVm.data.user.url }}" target="_blank">
+          <h1> {{ mainVm.data.user.realname }} </h1>
         </a>
 
-        <p>{{ vm.userInfo.user.playcount | number:0 }} scrobbles</p>
+        <p>{{ mainVm.data.user.playcount | number:0 }} scrobbles</p>
       </div>
 
       <core-tabs></core-tabs>
@@ -54,8 +24,8 @@
 
     <div class="wrapper text-center">
       <div class="message">
-        <h1>Error: #{{ vm.error }}</h1>
-        <p class="md-subhead">{{ vm.message}}<p>
+        <h1>Error: #{{ mainVm.data.error }}</h1>
+        <p class="md-subhead">{{ mainVm.data.message}}<p>
       </div>
     </div>
 
