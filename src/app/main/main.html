@@ -1,35 +1,32 @@
-<md-content flex layout-fill>
+<main ng-cloak>
+  <md-content flex layout-fill>
+    <core-header></core-header>
 
-  <core-header></core-header>
+    <section class="content">
 
-  <section class="content">
+      <div class="wrapper" ng-show="vm.data.user">
+        <div class="profile">
+          <a href="{{ vm.data.user.url }}" target="_blank">
+            <img ng-if="vm.data.user.image[2]['#text']" ng-src="{{ vm.data.user.image[2]['#text'] | trustAsResourceUrl }}" class="profile-img" alt="{{ vm.data.user.name }}" />
+            <img ng-if="!vm.data.user.image[2]['#text']" ng-src="{{ vm.placeholderUser | trustAsResourceUrl }}" class="profile-img" alt="{{ vm.data.user.name }}" />
+          </a>
 
-    <div class="wrapper" ng-show="vm.data.user" ng-cloak>
-      <div class="profile">
-        <a href="{{ vm.data.user.url }}" target="_blank">
-          <img ng-if="vm.data.user.image[2]['#text']" ng-src="{{ vm.data.user.image[2]['#text'] | trustAsResourceUrl }}" class="profile-img" alt="{{ vm.data.user.name }}" />
-          <img ng-if="!vm.data.user.image[2]['#text']" ng-src="{{ vm.placeholderUser | trustAsResourceUrl }}" class="profile-img" alt="{{ vm.data.user.name }}" />
-        </a>
+          <a target="_blank"><h1 class="profile-name"> {{ vm.data.user.name }} </h1></a>
+          <p class="profile-info">{{ vm.data.user.realname }}</p>
+          <p class="profile-info">{{ vm.data.user.playcount | number:0 }} scrobbles</p>
+        </div>
 
-        <a target="_blank"><h1 class="profile-name"> {{ vm.data.user.name }} </h1></a>
-        <p class="profile-info">{{ vm.data.user.realname }}</p>
-        <p class="profile-info">
-          <img ng-src="{{ vm.placeholderNow }}" alt="Playing Now"/>
-          &nbsp;{{ vm.data.user.playcount | number:0 }} scrobbles
-        </p>
+        <core-tabs></core-tabs>
       </div>
 
-      <core-tabs></core-tabs>
-    </div>
-
-    <div class="wrapper" ng-show="vm.data.error" ng-cloak>
-      <div class="message">
-        <h1>Error: #{{ vm.data.error }}</h1>
-        <p class="md-subhead">{{ vm.data.message}}. Please try again with a different username.<p>
+      <div class="wrapper" ng-show="vm.data.error" ng-cloak>
+        <div class="message">
+          <h1>Error: #{{ vm.data.error }}</h1>
+          <p class="md-subhead">{{ vm.data.message}}. Please try again with a different username.<p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <core-footer></core-footer>
-
-</md-content>
+    <core-footer></core-footer>
+  </md-content>
+</main>
