@@ -12,7 +12,7 @@
         title: "Museek",
         templateUrl: 'app/main/main.html',
         controller: 'MainController',
-        controllerAs: 'mainVm'
+        controllerAs: 'vm'
       })
       .otherwise({
         redirectTo: '/'

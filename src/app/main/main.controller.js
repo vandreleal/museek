@@ -7,11 +7,11 @@
 
   /** @ngInject */
   function MainController($scope, $http, $log, placeholder) {
-    var mainVm = this;
-    mainVm.placeholderUser = placeholder.USER;
+    var vm = this;
+    vm.placeholderUser = placeholder.USER;
 
     $scope.$on('onSearch', function(event, evtParam) {
-      mainVm.data = evtParam.data;
+      vm.data = evtParam.data;
     });
   }
 })();

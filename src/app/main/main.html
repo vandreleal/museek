@@ -3,29 +3,29 @@
 
   <section class="page-content">
 
-    <div class="wrapper" ng-show="mainVm.data.user" ng-cloak>
+    <div class="wrapper" ng-show="vm.data.user" ng-cloak>
       <div class="profile text-center">
-        <a href="{{ mainVm.data.user.url }}" target="_blank">
-          <img ng-if="mainVm.data.user.image[2]['#text']" ng-src="{{ mainVm.data.user.image[2]['#text'] }}" class="profile-img" alt="{{ mainVm.data.user.name }}" />
-          <img ng-if="!mainVm.data.user.image[2]['#text']" ng-src="{{ mainVm.placeholderUser }}" class="profile-img" alt="{{ mainVm.data.user.name }}" />
+        <a href="{{ vm.data.user.url }}" target="_blank">
+          <img ng-if="vm.data.user.image[2]['#text']" ng-src="{{ vm.data.user.image[2]['#text'] }}" class="profile-img" alt="{{ vm.data.user.name }}" />
+          <img ng-if="!vm.data.user.image[2]['#text']" ng-src="{{ vm.placeholderUser }}" class="profile-img" alt="{{ vm.data.user.name }}" />
         </a>
 
-        <a href="{{ mainVm.data.user.url }}" target="_blank">
-          <h1 class="profile-name"> {{ mainVm.data.user.name }} </h1>
+        <a href="{{ vm.data.user.url }}" target="_blank">
+          <h1 class="profile-name"> {{ vm.data.user.name }} </h1>
         </a>
-        <p class="profile-info">{{ mainVm.data.user.realname }}</p>
+        <p class="profile-info">{{ vm.data.user.realname }}</p>
         <p class="profile-info">
-          {{ mainVm.data.user.playcount | number:0 }} scrobbles
+          {{ vm.data.user.playcount | number:0 }} scrobbles
         </p>
       </div>
 
       <core-tabs></core-tabs>
     </div>
 
-    <div class="wrapper" ng-show="mainVm.data.error" ng-cloak>
+    <div class="wrapper" ng-show="vm.data.error" ng-cloak>
       <div class="message text-center">
-        <h1>Error: #{{ mainVm.data.error }}</h1>
-        <p class="md-subhead">{{ mainVm.data.message}}. Please try again with a different username.<p>
+        <h1>Error: #{{ vm.data.error }}</h1>
+        <p class="md-subhead">{{ vm.data.message}}. Please try again with a different username.<p>
       </div>
     </div>
   </section>
