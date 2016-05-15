@@ -1,6 +1,5 @@
 .header {
   padding-top: 48px;
-  margin-bottom: 48px;
   background-image: url("/assets/images/bg-header.jpg");
   background-size: cover;
   background-position: center center;
@@ -25,10 +24,13 @@
   font-size: 18px;
   font-weight: 700;
   transform: translateY(32px);
+  z-index: 1;
 }
 
 md-input-container {
   text-align: left;
+  margin-right: 4px;
+  margin-left: 4px;
 }
 
 md-option {
@@ -38,7 +40,12 @@ md-option {
 
   &:focus {
     background-color: $md-red-900;
-    font-weight: 700;
     color: $md-white !important;
+    font-weight: 700;
   }
+}
+
+md-progress-linear {
+  height: 4px;
+  // transform: translateY(-4px);
 }

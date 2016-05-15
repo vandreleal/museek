@@ -52,8 +52,28 @@
 .material-icons.md-36 { font-size: 36px; }
 .material-icons.md-48 { font-size: 48px; }
 
-html { font-family: 'Roboto Slab', serif; }
-p    { color: $md-grey-700; }
+html {
+  font-family: 'Roboto Slab', serif;
+}
+
+p {
+  color: $md-grey-700;
+}
+
+a {
+  color: $md-grey-900;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+
+  &:active,
+  &:visited {
+    color: $md-red-900;
+  }
+}
 
 .browsehappy {
   margin: 0.2em 0;
@@ -70,7 +90,7 @@ p    { color: $md-grey-700; }
 }
 
 .content {
-  padding-top: 32px;
+  padding-top: 72px;
 
   .profile {
     padding-top: 16px;

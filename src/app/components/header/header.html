@@ -1,11 +1,11 @@
 <header class="header" md-whiteframe="1">
   <div class="wrapper">
     <img ng-src="{{ headerVm.logo | trustAsResourceUrl }}" class="header-logo" alt="Museek's logo" />
-    <h2 class="md-headline header-headline">{{ headerVm.headline }}</h2>
+    <h1 class="md-headline header-headline">{{ headerVm.headline }}</h1>
 
     <form ng-submit="headerVm.searchUser()" name="userForm">
       <div layout-gt-sm="row">
-        <md-input-container class="md-block" flex-gt-sm="40">
+        <md-input-container class="md-block" flex-gt-sm="50">
           <label>Username</label>
           <input type="text" autofocus name="username" ng-model="headerVm.user" required placeholder="e.g. vandrelc or dungahk">
           <!-- <div ng-messages="userForm.username.$error" role="alert">
@@ -13,8 +13,8 @@
           </div> -->
         </md-input-container>
 
-        <md-input-container class="md-block" flex-gt-sm="30">
-          <label>Limit (Optional)</label>
+        <md-input-container class="md-block" flex-gt-sm="20">
+          <label>Limit</label>
           <input type="number" name="limit" string-to-number ng-model="headerVm.limit" placeholder="Default: 10" max="100" maxlength="3">
           <!-- <div ng-messages="userForm.limit.$error" role="alert">
             <div ng-message="max">Maximum Limit: 100.</div>
@@ -22,7 +22,7 @@
         </md-input-container>
 
         <md-input-container class="md-block" flex-gt-sm="30">
-          <label>Period (Optional)</label>
+          <label>Period</label>
           <md-select ng-model="headerVm.period">
             <md-option ng-repeat="period in headerVm.periods" value="{{ period.parameter }}">
               {{ period.label }}
@@ -38,3 +38,5 @@
     </form>
   </div>
 </header>
+
+<md-progress-linear ng-show="headerVm.isLoading" class="md-accent" md-mode="indeterminate"></md-progress-linear>

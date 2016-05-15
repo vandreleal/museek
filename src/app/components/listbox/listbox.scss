@@ -7,13 +7,17 @@ md-list-item {
     width: 56px;
     height: 56px;
   }
+
+  .item-right {
+    text-align: right;
+  }
+
+  .secondary {
+    @extend p;
+  }
 }
 
 md-tab-content {
   padding-top: 16px;
   padding-bottom: 16px;
-}
-
-.item-right {
-  text-align: right;
 }
