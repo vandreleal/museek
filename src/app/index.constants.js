@@ -10,7 +10,7 @@
       'API_KEY' : '5d78615f919a188a79598df5687242f4',
       'FORMAT'  : 'json',
       'PERIOD'  : 'overall',
-      'USER'    : '',
+      'USER'    : 'vandrelc',
       'LIMIT'   : '10'
     })
     .constant('placeholder', {
