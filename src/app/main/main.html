@@ -15,6 +15,7 @@
         </a>
         <p class="profile-info">{{ vm.data.user.realname }}</p>
         <p class="profile-info">
+          <img ng-src="{{ vm.placeholderNow }}" alt="Playing now" />
           {{ vm.data.user.playcount | number:0 }} scrobbles
         </p>
       </div>
