@@ -21,9 +21,8 @@
 
       <div class="wrapper" ng-show="vm.data.error" ng-cloak>
         <div class="message">
-          <h1>Error Code: #{{ vm.data.error }}</h1>
-          <p class="md-subhead">{{ vm.data.message}}. Please try again with a different username.
-            <p>
+          <md-icon class="material-icons md-48 md-accent">error_outline</md-icon>
+          <h1 class="md-title">{{ vm.data.message}}.<h1>
         </div>
       </div>
     </section>
