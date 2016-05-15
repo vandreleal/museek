@@ -1,11 +1,9 @@
 <md-content flex layout-fill>
-  <header class="page-header" md-whiteframe="2">
-    <core-header></core-header>
-  </header>
+  <core-header></core-header>
 
   <section class="page-content">
 
-    <div class="wrapper" ng-show="mainVm.data" ng-cloak>
+    <div class="wrapper" ng-show="mainVm.data.user" ng-cloak>
       <div class="text-center">
         <a href="{{ mainVm.data.user.url }}" target="_blank">
           <img ng-if="mainVm.data.user.image[2]['#text']" ng-src="{{ mainVm.data.user.image[2]['#text'] }}" class="profile" alt="{{ mainVm.data.user.name }}" />
@@ -16,19 +14,21 @@
           <h1> {{ mainVm.data.user.realname }} </h1>
         </a>
 
-        <p>{{ mainVm.data.user.playcount | number:0 }} scrobbles</p>
+        <div class="description">
+          <p>{{ mainVm.data.user.name }}</p>
+          <p>{{ mainVm.data.user.playcount | number:0 }} scrobbles</p>
+        </div>
       </div>
 
       <core-tabs></core-tabs>
     </div>
 
-    <div class="wrapper text-center">
-      <div class="message">
+    <div class="wrapper" ng-show="mainVm.data.error" ng-cloak>
+      <div class="message text-center">
         <h1>Error: #{{ mainVm.data.error }}</h1>
-        <p class="md-subhead">{{ mainVm.data.message}}<p>
+        <p class="md-subhead">{{ mainVm.data.message}}. Please try again with a different username.<p>
       </div>
     </div>
-
   </section>
 
   <core-footer></core-footer>

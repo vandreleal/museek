@@ -73,31 +73,6 @@ p {
   margin: 0 auto;
 }
 
-.page-header {
-  padding-top: 32px;
-  background-image: url("/assets/default_header-edited.jpeg");
-  background-size: cover;
-  background-position: center center;
-  text-align: center;
-
-  .description {
-    margin-top: 24px;
-    margin-bottom: 48px;
-  }
-
-  .btn-retrieve {
-    padding: 8px 40px;
-    border-radius: 25px;
-    font-size: 18px;
-    font-weight: 700;
-    transform: translateY(32px);
-  }
-}
-
-md-select {
-  text-align: left;
-}
-
 .remove {
   &-margin { margin: 0; }
   &-padding { padding: 0; }
@@ -112,11 +87,6 @@ md-select {
 .page-content {
   margin-top: 72px;
   margin-bottom: 36px;
-
-  .user-listbox {
-    margin-top: 16px;
-    margin-bottom: 16px;
-  }
 
   .message {
     padding: 16px;

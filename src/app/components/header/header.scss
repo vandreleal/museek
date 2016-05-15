@@ -1,0 +1,24 @@
+.page-header {
+  padding-top: 32px;
+  background-image: url("/assets/default_header-edited.jpeg");
+  background-size: cover;
+  background-position: center center;
+  text-align: center;
+
+  .description {
+    margin-top: 24px;
+    margin-bottom: 48px;
+  }
+
+  .btn-retrieve {
+    padding: 8px 40px;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: 700;
+    transform: translateY(32px);
+  }
+}
+
+md-select {
+  text-align: left;
+}

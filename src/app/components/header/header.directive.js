@@ -44,19 +44,17 @@
         }
 
         $http(request).then(function successCallback(response) {
+            $scope.$broadcast('onSearch', {
+              data: response.data
+            });
 
             if(!response.data.error) {
               $scope.$broadcast('onUserSearch', {
-                obj: response.data,
                 user: headerVm.user,
                 period: headerVm.period,
                 limit: headerVm.limit,
                 totalPlaycount: response.data.user.playcount
               });
-            }
-            else {
-              headerVm.error = response.data.error;
-              headerVm.message = response.data.message;
             }
           },
           function errorCallback(response) {

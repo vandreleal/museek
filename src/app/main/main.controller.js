@@ -9,10 +9,8 @@
   function MainController($scope, $http, $log) {
     var mainVm = this;
 
-    $scope.$on('onUserSearch', function(event, evtParam) {
-      if(evtParam.obj) {
-        mainVm.data = evtParam.obj;
-      }
+    $scope.$on('onSearch', function(event, evtParam) {
+      mainVm.data = evtParam.data;
     });
   }
 })();
