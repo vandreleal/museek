@@ -1,11 +1,11 @@
 .header {
   padding-top: 32px;
   margin-bottom: 32px;
-  background-image: url("/assets/images/default_header-edited.jpeg");
-  background-color: $md-blue-grey-50;
-  background-blend-mode: multiply;
+  background-image: url("/assets/images/bg-header.jpg");
   background-size: cover;
   background-position: center center;
+  background-color: $md-blue-grey-50;
+  background-blend-mode: multiply;
   text-align: center;
 
   &-logo {
@@ -15,9 +15,9 @@
     margin-bottom: 16px;
   }
 
-  &-description {
+  &-headline {
     margin-top: 16px;
-    margin-bottom: 48px;
+    margin-bottom: 32px;
   }
 }
 
@@ -29,6 +29,6 @@
   transform: translateY(32px);
 }
 
-md-select {
+md-input-container {
   text-align: left;
 }

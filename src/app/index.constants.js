@@ -1,16 +1,14 @@
-/* global moment:false */
 (function() {
   'use strict';
 
   angular
     .module('museek')
-    .constant('moment', moment)
     .constant('config', {
-      'URL'     : 'http://ws.audioscrobbler.com/2.0/?',
+      'URL'     : 'https://ws.audioscrobbler.com/2.0/?',
       'API_KEY' : '5d78615f919a188a79598df5687242f4',
       'FORMAT'  : 'json',
       'PERIOD'  : 'overall',
-      'USER'    : 'vandrelc',
+      'USER'    : '',
       'LIMIT'   : '10'
     })
     .constant('placeholder', {

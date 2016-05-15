@@ -1,22 +1,22 @@
-<header class="header" md-whiteframe="2">
+<header class="header" md-whiteframe="1">
   <div class="wrapper">
-    <!-- <h1 class="md-display-3">Museek</h1> -->
-    <img ng-src="/assets/images/logo.png" class="header-logo" alt="Museek's logo" />
-    <h2 class="md-headline header-description">Last.fm user stats.</h2>
+    <img ng-src="{{ headerVm.logo }}" class="header-logo" alt="Museek's logo" />
+    <h2 class="md-headline header-headline">{{ headerVm.headline }}</h2>
 
-    <form name="userForm">
+    <form ng-submit="headerVm.searchUser()" name="userForm">
       <div layout-gt-sm="row">
         <md-input-container class="md-block" flex-gt-sm="40">
           <label>Username</label>
-          <input ng-model="headerVm.user" min="1" placeholder="e.g. vandrelc or dungahk">
+          <input autofocus name="username" ng-model="headerVm.user" required placeholder="e.g. vandrelc or dungahk">
+          <div ng-messages="userForm.username.$error" role="alert">
+            <div ng-message="required">This field is required.</div>
+          </div>
         </md-input-container>
 
         <md-input-container class="md-block" flex-gt-sm="30">
           <label>Limit</label>
-          <input name="queryLimit" ng-model="headerVm.limit" placeholder="Default: 10" required min="1" max="100" ng-pattern="/^[0-9]$/">
-          <div ng-messages="userForm.queryLimit.$error" role="alert" multiple>
-            <div ng-message="pattern" class="my-message">That doesn't look like a valid limit.</div>
-            <div ng-message="min">Value should be greater than 0.</div>
+          <input name="limit" ng-model="headerVm.limit" placeholder="Default: 10" max="100">
+          <div ng-messages="userForm.limit.$error" role="alert">
             <div ng-message="max">Value should be less than 100.</div>
           </div>
         </md-input-container>
@@ -30,7 +30,7 @@
           </md-select>
         </md-input-container>
       </div>
-      <md-button class="md-raised md-accent btn-search" ng-click="headerVm.searchUser()">
+      <md-button type="submit" class="md-raised md-accent btn-search">
         <md-icon class="material-icons md-24">search</md-icon>
         <span>Search</span>
       </md-button>

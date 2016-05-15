@@ -69,18 +69,13 @@ p    { color: $md-grey-700; }
   margin: 0 auto;
 }
 
-.text {
-  &-left   { text-align: left; }
-  &-center { text-align: center; }
-  &-right  { text-align: right; }
-}
-
 .content {
   padding-top: 48px;
 
   .profile {
     padding-top: 16px;
     padding-bottom: 32px;
+    text-align: center;
 
     &-name {
       margin-top: 8px;
@@ -104,6 +99,7 @@ p    { color: $md-grey-700; }
     background-color: $md-red-50;
     border-radius: 3px;
     color: $md-red-900;
+    text-align: center;
   }
 }
 

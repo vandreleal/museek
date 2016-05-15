@@ -6,7 +6,7 @@
     .config(routerConfig);
 
   /** @ngInject */
-  function routerConfig($routeProvider) {
+  function routerConfig($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
         title: "Museek",
@@ -17,6 +17,9 @@
       .otherwise({
         redirectTo: '/'
       });
+
+      // use the HTML5 History API
+      $locationProvider.html5Mode(true);
   }
 
 })();

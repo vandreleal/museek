@@ -20,13 +20,13 @@
     function HeaderController($scope, $timeout, $http, $log, config, placeholder, apiMethods) {
       var headerVm = this;
 
+      headerVm.logo = "/assets/images/logo.png";
+      headerVm.headline = "Visualize any Last.fm user's information.";
+
       headerVm.user = config.USER;
       headerVm.period = config.PERIOD;
       headerVm.limit = config.LIMIT;
 
-      headerVm.periods = ["overall", "7day", "1month", "6month", "12month"];
-
-      // Refresh
       headerVm.periods = [
         {
           label: "Overall",
@@ -74,7 +74,7 @@
             if (!response.data.error) {
 
               if(!headerVm.limit) {
-                headerVm.limit = 50;
+                headerVm.limit = config.LIMIT;
               }
 
               $scope.$broadcast('onUserSearch', {

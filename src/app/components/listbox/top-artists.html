@@ -12,11 +12,10 @@
     <a href="{{ item.url }}" target="_blank">
       <span>{{ item.name }}</span>
     </a>
-    <p>{{ item.playcount | number:0 }} scrobbles</p>
   </div>
 
   <div flex="20" hide-xs class="md-list-item-text text-right">
-    <!-- <p>#{{ item['@attr'].rank }}</p> -->
+    <p>{{ item.playcount | number:0 }} scrobbles</p>
     <p>{{ (item.playcount / $ctrl.totalPlaycount) * 100 | number:2 }}% of total</p>
   </div>
 </md-list-item>
