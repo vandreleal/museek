@@ -9,7 +9,7 @@
     <span>&nbsp;&mdash;&nbsp;</span>
     <a href="{{ item.url }}" target="_blank"><span>{{ item.name }}</span></a>
 
-    <p ng-if="item.date['#text']">{{ (item.date.uts * 1000) | date:'MMM d, y - hh:mm:ss' }}</p>
+    <p ng-if="item.date['#text']">{{ (item.date.uts * 1000) | date:'MMM d, y - h:mm:ss a' }}</p>
     <p ng-if="item['@attr'].nowplaying">
       <img ng-src="{{ $ctrl.placeholderNow }}" alt="Playing Now"/>
       <span>Scrobbling Now</span>
