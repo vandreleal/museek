@@ -96,19 +96,12 @@
       headerVm.searchUser = function() {
         getUserInfo();
         headerVm.isLoading = true;
-        
+
         $timeout(function() {
           headerVm.isLoading = false;
         }, 1000);
-      };
+      }
 
-      // headerVm.searchUser = function() {
-      //   headerVm.isLoading = true;
-      //   $timeout(function() {
-      //     getUserInfo();
-      //     headerVm.isLoading = false;
-      //   }, 1000);
-      // }
     }
   }
 
