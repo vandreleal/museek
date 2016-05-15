@@ -21,7 +21,7 @@
       var headerVm = this;
 
       headerVm.logo = "/assets/images/logo.png";
-      headerVm.headline = "Visualize any Last.fm user's information.";
+      headerVm.headline = "Last.fm User Statistics";
 
       headerVm.user = config.USER;
       headerVm.period = config.PERIOD;
