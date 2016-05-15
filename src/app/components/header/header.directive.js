@@ -61,16 +61,16 @@
         }
 
         $http(request).then(function successCallback(response) {
+            if (!headerVm.limit) {
+              headerVm.limit = config.LIMIT;
+            }
+
             $scope.$broadcast('onSearch', {
-              data: response.data
+              data: response.data,
+              user: headerVm.user
             });
 
             if (!response.data.error) {
-
-              if (!headerVm.limit) {
-                headerVm.limit = config.LIMIT;
-              }
-
               $scope.$broadcast('onUserSearch', {
                 user: headerVm.user,
                 period: headerVm.period,

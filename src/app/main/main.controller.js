@@ -12,7 +12,7 @@
     vm.placeholderNow = placeholder.NOW;
 
     $scope.$on('onSearch', function(event, evtParam) {
-      vm.data = evtParam.data;
+      vm.response = evtParam;
     });
   }
 })();
