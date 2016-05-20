@@ -17,7 +17,7 @@
     return directive;
 
     /** @ngInject */
-    function HeaderController($scope, $timeout, $http, $log, config, placeholder, API) {
+    function HeaderController($scope, $http, $log, config, placeholder, API) {
       var headerVm = this;
 
       headerVm.logo = "assets/images/logo.png";
@@ -25,24 +25,8 @@
 
       headerVm.user = config.USER;
       headerVm.period = config.PERIOD;
+      headerVm.periods = config.PERIODS;
       headerVm.limit = config.LIMIT;
-
-      headerVm.periods = [{
-        label: "Overall",
-        parameter: "overall"
-      }, {
-        label: "Last Week",
-        parameter: "7day"
-      }, {
-        label: "Last Month",
-        parameter: "1month"
-      }, {
-        label: "Last 6 Months",
-        parameter: "6month"
-      }, {
-        label: "Last Year",
-        parameter: "12month"
-      }];
 
 
       function getUserData(userInfo) {
@@ -51,7 +35,11 @@
           headerVm.isLoading = false;
         }
         else {
-          var userTotalPlaycount = userInfo.user.playcount;
+          var userPlaycount = userInfo.user.playcount;
+
+          $scope.$broadcast('onGetUserPlaycount', {
+            userPlaycount: userPlaycount
+          });
 
           if (!headerVm.limit) {
             headerVm.limit = config.LIMIT;
@@ -61,7 +49,7 @@
             .then(function(userTopAlbums) {
               $scope.$broadcast('onGetUserTopAlbums', {
                 userTopAlbums: userTopAlbums,
-                userTotalPlaycount: userTotalPlaycount
+                userPlaycount: userPlaycount
               });
             });
 
@@ -69,7 +57,7 @@
             .then(function(userTopArtists) {
               $scope.$broadcast('onGetUserTopArtists', {
                 userTopArtists: userTopArtists,
-                userTotalPlaycount: userTotalPlaycount
+                userPlaycount: userPlaycount
               });
             });
 
@@ -77,7 +65,7 @@
             .then(function(userTopTracks) {
               $scope.$broadcast('onGetUserTopTracks', {
                 userTopTracks: userTopTracks,
-                userTotalPlaycount: userTotalPlaycount
+                userPlaycount: userPlaycount
               });
             });
 
@@ -85,16 +73,16 @@
             .then(function(userRecentTracks) {
               $scope.$broadcast('onGetUserRecentTracks', {
                 userRecentTracks: userRecentTracks,
-                userTotalPlaycount: userTotalPlaycount
+                userPlaycount: userPlaycount
               });
-
               headerVm.isLoading = false;
             });
         }
 
         $scope.$broadcast('onGetUserInfo', {
           data: userInfo,
-          user: headerVm.user
+          user: headerVm.user,
+          period: headerVm.period
         });
       }
 

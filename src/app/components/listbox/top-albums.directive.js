@@ -15,7 +15,7 @@
     $scope.$on('onGetUserTopAlbums', function(event, userData) {
       if (userData) {
         ctrl.userTopAlbums = userData.userTopAlbums['topalbums']['album'];
-        ctrl.userTotalPlaycount = userData.userTotalPlaycount;
+        ctrl.userPlaycount = userData.userPlaycount;
 
         ctrl.placeholderAlbum = placeholder.ALBUM;
       }

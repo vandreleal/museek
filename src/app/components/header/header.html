@@ -25,8 +25,8 @@
         <md-input-container class="md-block" flex-gt-sm="30">
           <label>Period</label>
           <md-select ng-model="headerVm.period">
-            <md-option ng-repeat="period in headerVm.periods" value="{{ period.parameter }}">
-              {{ period.label }}
+            <md-option ng-repeat="period in headerVm.periods" value="{{ period }}">
+              {{ period | humanizePeriod }}
             </md-option>
           </md-select>
         </md-input-container>

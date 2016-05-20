@@ -4,6 +4,14 @@
     <div core-header ng-cloak></div>
 
     <section class="content" ng-show="!headerVm.isLoading" ng-cloak>
+
+      <div class="wrapper" ng-show="vm.userInfo.data.error">
+        <div class="message">
+          <md-icon class="material-icons md-48 md-accent">error_outline</md-icon>
+          <h1 class="md-title">{{ vm.userInfo.data.message }}: {{ vm.userInfo.user }}<h1>
+        </div>
+      </div>
+
       <div class="wrapper" ng-show="vm.userInfo.data.user">
         <div class="profile">
           <a href="{{ vm.userInfo.data.user.url }}" target="_blank">
@@ -19,12 +27,6 @@
         <div core-tabs ng-cloak></div>
       </div>
 
-      <div class="wrapper" ng-show="vm.userInfo.data.error">
-        <div class="message">
-          <md-icon class="material-icons md-48 md-accent">error_outline</md-icon>
-          <h1 class="md-title">{{ vm.userInfo.data.message }}: {{ vm.userInfo.user }}<h1>
-        </div>
-      </div>
     </section>
 
     <div core-footer ng-show="!headerVm.isLoading" ng-cloak></div>

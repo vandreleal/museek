@@ -15,7 +15,7 @@
     $scope.$on('onGetUserTopTracks', function(event, userData) {
       if (userData) {
         ctrl.userTopTracks = userData.userTopTracks['toptracks']['track'];
-        ctrl.userTotalPlaycount = userData.userTotalPlaycount;
+        ctrl.userPlaycount = userData.userPlaycount;
 
         ctrl.placeholderTrack = placeholder.TRACK;
       }
