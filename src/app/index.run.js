@@ -6,21 +6,11 @@
     .run(runBlock);
 
   /** @ngInject */
-  function runBlock($log, $document, $window, $timeout) {
-    var body = $document.body, timer;
+  function runBlock($log) {
+    var now = new Date().getTime();
+    var pageLoadTime = now - performance.timing.navigationStart;
 
-    $window.addEventListener('scroll', function() {
-      clearTimeout(timer);
-      if(!body.classList.contains('disable-hover')) {
-        body.classList.add('disable-hover')
-      }
-
-      timer = $timeout(function(){
-        body.classList.remove('disable-hover')
-      },500);
-    }, false);
-
-    $log.debug('Museek loaded successfully.');
+    $log.debug('Museek loaded successfully in ' + pageLoadTime + ' ms.');
   }
 
 })();

@@ -1,14 +1,11 @@
-<main role="main" ng-cloak>
-  <md-content flex layout-fill>
+<div layout-fill>
+  <div core-header ng-cloak></div>
 
-    <div core-header ng-cloak></div>
-
-    <section class="content" ng-show="!headerVm.isLoading" ng-cloak>
-
-      <div class="wrapper" ng-show="vm.userInfo.data.error">
-        <div class="message">
-          <md-icon class="material-icons md-48 md-accent">error_outline</md-icon>
-          <h1 class="md-title">{{ vm.userInfo.data.message }}: {{ vm.userInfo.user }}<h1>
+  <section class="content" ng-show="!headerVm.isLoading" ng-cloak>
+    <div class="wrapper" ng-show="vm.userInfo.data.error">
+      <div class="message">
+        <md-icon class="material-icons md-48 md-accent">error_outline</md-icon>
+        <h1 class="md-title">{{ vm.userInfo.data.message }}: {{ vm.userInfo.user }}<h1>
         </div>
       </div>
 
@@ -20,16 +17,13 @@
           </a>
 
           <a href="{{ vm.userInfo.data.user.url }}" target="_blank"><h1 class="profile-name"> {{ vm.userInfo.data.user.name }} </h1></a>
-          <p class="profile-info">{{ vm.userInfo.data.user.realname }}</p>
-          <p class="profile-info">{{ vm.userInfo.data.user.playcount | number:0 }} scrobbles</p>
-        </div>
-
-        <div core-tabs ng-cloak></div>
+        <p class="profile-info">{{ vm.userInfo.data.user.realname }}</p>
+        <p class="profile-info">{{ vm.userInfo.data.user.playcount | number:0 }} scrobbles</p>
       </div>
 
-    </section>
+      <div core-tabs ng-cloak></div>
+    </div>
+  </section>
 
-    <div core-footer ng-show="!headerVm.isLoading" ng-cloak></div>
-
-  </md-content>
-</main>
+  <div core-footer ng-show="!headerVm.isLoading" ng-cloak></div>
+</div>

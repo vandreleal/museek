@@ -39,14 +39,12 @@
 
   </head>
 
-  <body flex layout="column" ng-cloak>
+  <body ng-cloak>
     <!--[if lt IE 10]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
       <![endif]-->
 
-    <md-content flex layout="row">
-      <div ng-view flex layout="column" tabindex="-1" ng-cloak></div>
-    </md-content>
+    <div ng-view></div>
 
     <!-- build:js(src) scripts/vendor.js -->
     <!-- bower:js -->
