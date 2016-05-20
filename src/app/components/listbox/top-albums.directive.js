@@ -9,7 +9,7 @@
     });
 
   /** @ngInject */
-  function TopAlbumsController($scope, $http, $log, config, placeholder, API) {
+  function TopAlbumsController($scope, $http, $log, config, placeholder) {
     var ctrl = this;
 
     $scope.$on('onGetUserTopAlbums', function(event, userData) {

@@ -9,7 +9,7 @@
     });
 
   /** @ngInject */
-  function RecentTracks($scope, $http, $log, config, placeholder, API) {
+  function RecentTracks($scope, $http, $log, config, placeholder) {
     var ctrl = this;
 
     $scope.$on('onGetUserRecentTracks', function(event, userData) {

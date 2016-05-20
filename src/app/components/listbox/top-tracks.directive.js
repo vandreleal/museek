@@ -9,7 +9,7 @@
     });
 
   /** @ngInject */
-  function TopTracksController($scope, $http, $log, config, placeholder, API) {
+  function TopTracksController($scope, $http, $log, config, placeholder) {
     var ctrl = this;
 
     $scope.$on('onGetUserTopTracks', function(event, userData) {

@@ -9,7 +9,7 @@
     });
 
   /** @ngInject */
-  function TopArtistsController($scope, $http, $log, config, placeholder, API) {
+  function TopArtistsController($scope, $http, $log, config, placeholder) {
     var ctrl = this;
 
     $scope.$on('onGetUserTopArtists', function(event, userData) {
