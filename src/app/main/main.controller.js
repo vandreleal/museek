@@ -6,11 +6,11 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($scope, $http, $log, placeholder) {
+  function MainController($scope, $http, $log, apiPlaceholders) {
     var vm = this;
-    
-    vm.placeholderUser = placeholder.USER;
-    vm.placeholderNow = placeholder.NOW;
+
+    vm.placeholderUser = apiPlaceholders.USER;
+    vm.placeholderNow = apiPlaceholders.NOW;
 
     $scope.$on('onGetUserInfo', function(event, data) {
       vm.userInfo = data;

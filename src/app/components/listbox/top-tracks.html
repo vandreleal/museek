@@ -18,7 +18,7 @@
   </div>
 
   <div flex="20" hide-xs class="md-list-item-text item-right">
-    <p>{{ item.playcount | number:0 }} scrobbles</p>
-    <p>{{ (item.playcount / $ctrl.userPlaycount) * 100 | number:2 }}% of total</p>
+    <p>{{ item.playcount | number:0 | scrobbles }}</p>
+    <p>{{ (item.playcount / $ctrl.userPlaycount) * 100 | number:2 | percentage }}</p>
   </div>
 </md-list-item>

@@ -17,16 +17,16 @@
     return directive;
 
     /** @ngInject */
-    function HeaderController($scope, $http, $log, config, placeholder, API) {
+    function HeaderController($scope, $http, $log, apiConfig, API) {
       var headerVm = this;
 
       headerVm.logo = "assets/images/logo.png";
       headerVm.headline = "Last.fm User Statistics";
 
-      headerVm.user = config.USER;
-      headerVm.period = config.PERIOD;
-      headerVm.periods = config.PERIODS;
-      headerVm.limit = config.LIMIT;
+      headerVm.user = apiConfig.USER;
+      headerVm.period = apiConfig.PERIOD;
+      headerVm.periods = apiConfig.PERIODS;
+      headerVm.limit = apiConfig.LIMIT;
 
 
       function getUserData(userInfo) {
@@ -42,7 +42,7 @@
           });
 
           if (!headerVm.limit) {
-            headerVm.limit = config.LIMIT;
+            headerVm.limit = apiConfig.LIMIT;
           }
 
           API.getUserTopAlbums(headerVm.user, headerVm.limit, headerVm.period)

@@ -7,8 +7,8 @@
       if ((host == window.location.host) && (window.location.protocol != "https:"))
         window.location.protocol = "https";
     </script> -->
-    <base href="/museek/">
-    <!-- <base href="/"> -->
+    <!-- <base href="/museek/"> -->
+    <base href="/">
     <meta charset="utf-8">
     <title>Museek</title>
     <meta name="description" content="">
@@ -45,7 +45,7 @@
       <![endif]-->
 
     <md-content flex layout="row">
-      <div ng-view flex layout="column" tabindex="-1"></div>
+      <div ng-view flex layout="column" tabindex="-1" ng-cloak></div>
     </md-content>
 
     <!-- build:js(src) scripts/vendor.js -->

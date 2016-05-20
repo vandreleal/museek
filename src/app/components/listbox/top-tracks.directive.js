@@ -9,7 +9,7 @@
     });
 
   /** @ngInject */
-  function TopTracksController($scope, $http, $log, config, placeholder) {
+  function TopTracksController($scope, $http, $log, apiPlaceholders) {
     var ctrl = this;
 
     $scope.$on('onGetUserTopTracks', function(event, userData) {
@@ -17,7 +17,7 @@
         ctrl.userTopTracks = userData.userTopTracks['toptracks']['track'];
         ctrl.userPlaycount = userData.userPlaycount;
 
-        ctrl.placeholderTrack = placeholder.TRACK;
+        ctrl.placeholderTrack = apiPlaceholders.TRACK;
       }
     });
   }

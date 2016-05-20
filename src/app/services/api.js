@@ -6,7 +6,7 @@
       .factory('API', APIMethods);
 
     /** @ngInject */
-    function APIMethods($q, $http, $log, config, apiMethods) {
+    function APIMethods($q, $http, $log, apiConfig, apiMethods) {
       return {
 
         getUserInfo: function(user) {
@@ -15,12 +15,12 @@
           var parameters =
             angular.element.param({
               method: apiMethods.GET_USER_INFO,
-              api_key: config.API_KEY,
-              format: config.FORMAT,
+              api_key: apiConfig.API_KEY,
+              format: apiConfig.FORMAT,
               user: user
             });
 
-          $http.get(config.URL + parameters, {}).success(function(r) {
+          $http.get(apiConfig.URL + parameters, {}).success(function(r) {
             // $log.debug('Sucess-> ' + apiMethods.GET_USER_INFO, r);
             ret.resolve(r);
           }).error(function(err) {
@@ -37,14 +37,14 @@
           var parameters =
             angular.element.param({
               method: apiMethods.GET_USER_TOP_ALBUMS,
-              api_key: config.API_KEY,
-              format: config.FORMAT,
+              api_key: apiConfig.API_KEY,
+              format: apiConfig.FORMAT,
               user: user,
               period: period,
               limit: limit
             });
 
-          $http.get(config.URL + parameters, {}).success(function(r) {
+          $http.get(apiConfig.URL + parameters, {}).success(function(r) {
             // $log.debug('Sucess-> ' + apiMethods.GET_USER_TOP_ALBUMS, r);
             ret.resolve(r);
           }).error(function(err) {
@@ -61,14 +61,14 @@
           var parameters =
             angular.element.param({
               method: apiMethods.GET_USER_TOP_ARTISTS,
-              api_key: config.API_KEY,
-              format: config.FORMAT,
+              api_key: apiConfig.API_KEY,
+              format: apiConfig.FORMAT,
               user: user,
               period: period,
               limit: limit
             });
 
-          $http.get(config.URL + parameters, {}).success(function(r) {
+          $http.get(apiConfig.URL + parameters, {}).success(function(r) {
             // $log.debug('Sucess-> ' + apiMethods.GET_USER_TOP_ARTISTS, r);
             ret.resolve(r);
           }).error(function(err) {
@@ -86,14 +86,14 @@
           var parameters =
             angular.element.param({
               method: apiMethods.GET_USER_TOP_TRACKS,
-              api_key: config.API_KEY,
-              format: config.FORMAT,
+              api_key: apiConfig.API_KEY,
+              format: apiConfig.FORMAT,
               user: user,
               period: period,
               limit: limit
             });
 
-          $http.get(config.URL + parameters, {}).success(function(r) {
+          $http.get(apiConfig.URL + parameters, {}).success(function(r) {
             // $log.debug('Sucess-> ' + apiMethods.GET_USER_TOP_TRACKS, r);
             ret.resolve(r);
           }).error(function(err) {
@@ -111,14 +111,14 @@
           var parameters =
             angular.element.param({
               method: apiMethods.GET_USER_RECENT_TRACKS,
-              api_key: config.API_KEY,
-              format: config.FORMAT,
+              api_key: apiConfig.API_KEY,
+              format: apiConfig.FORMAT,
               user: user,
               limit: limit,
               extended: extended
             });
 
-          $http.get(config.URL + parameters, {}).success(function(r) {
+          $http.get(apiConfig.URL + parameters, {}).success(function(r) {
             // $log.debug('Sucess-> ' + apiMethods.GET_USER_RECENT_TRACKS, r);
             ret.resolve(r);
           }).error(function(err) {

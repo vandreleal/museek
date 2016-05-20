@@ -4,7 +4,9 @@
   angular
     .module('museek')
     .filter('trustAsResourceUrl', trustAsResourceUrl)
-    .filter('humanizePeriod', humanizePeriod);
+    .filter('humanizePeriod', humanizePeriod)
+    .filter('scrobbles', scrobbles)
+    .filter('percentage', percentage);
 
   /** @ngInject */
   function trustAsResourceUrl($sce) {
@@ -40,4 +42,19 @@
       }
     };
   }
+
+  /** @ngInject */
+  function scrobbles() {
+    return function(scroobles) {
+      return scroobles + ' scroobles';
+    }
+  }
+
+  /** @ngInject */
+  function percentage() {
+    return function(percentage) {
+      return percentage + ' % of total';
+    }
+  }
+
 })();

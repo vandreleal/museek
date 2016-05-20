@@ -9,7 +9,7 @@
     });
 
   /** @ngInject */
-  function TopAlbumsController($scope, $http, $log, config, placeholder) {
+  function TopAlbumsController($scope, $http, $log, apiPlaceholders) {
     var ctrl = this;
 
     $scope.$on('onGetUserTopAlbums', function(event, userData) {
@@ -17,7 +17,7 @@
         ctrl.userTopAlbums = userData.userTopAlbums['topalbums']['album'];
         ctrl.userPlaycount = userData.userPlaycount;
 
-        ctrl.placeholderAlbum = placeholder.ALBUM;
+        ctrl.placeholderAlbum = apiPlaceholders.ALBUM;
       }
     });
   }

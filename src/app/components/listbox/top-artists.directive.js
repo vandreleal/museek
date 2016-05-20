@@ -9,7 +9,7 @@
     });
 
   /** @ngInject */
-  function TopArtistsController($scope, $http, $log, config, placeholder) {
+  function TopArtistsController($scope, $http, $log, apiPlaceholders) {
     var ctrl = this;
 
     $scope.$on('onGetUserTopArtists', function(event, userData) {
@@ -17,7 +17,7 @@
         ctrl.userTopArtists = userData.userTopArtists['topartists']['artist'];
         ctrl.userPlaycount = userData.userPlaycount;
 
-        ctrl.placeholderArtist = placeholder.ARTIST;
+        ctrl.placeholderArtist = apiPlaceholders.ARTIST;
       }
     });
   }
