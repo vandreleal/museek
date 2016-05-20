@@ -95,3 +95,11 @@ gulp.task('clean', function () {
 });
 
 gulp.task('build', ['html', 'fonts', 'other']);
+
+// 'gulp deploy' -- pushes your dist folder to Github
+gulp.task('deploy', ['build'], () => {
+  return gulp.src('dist/**/*')
+    .pipe($.ghPages({
+      branch: "gh-pages"
+    }));
+});

@@ -20,7 +20,7 @@
     function HeaderController($scope, $timeout, $http, $log, config, placeholder, API) {
       var headerVm = this;
 
-      headerVm.logo = "/assets/images/logo.png";
+      headerVm.logo = "assets/images/logo.png";
       headerVm.headline = "Last.fm User Statistics";
 
       headerVm.user = config.USER;

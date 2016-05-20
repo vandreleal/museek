@@ -1,7 +1,6 @@
 {
   "name": "museek",
   "version": "1.0.0",
-  "dependencies": {},
   "scripts": {
     "test": "gulp test"
   },
@@ -48,7 +47,8 @@
     "http-proxy-middleware": "~0.9.0",
     "chalk": "~1.1.1",
     "uglify-save-license": "~0.4.1",
-    "wrench": "~1.5.8"
+    "wrench": "~1.5.8",
+    "gulp-gh-pages": "^0.5.4"
   },
   "engines": {
     "node": ">=0.10.0"
