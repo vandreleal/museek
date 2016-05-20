@@ -8,7 +8,7 @@
   /** @ngInject */
   function coreTabs() {
     var directive = {
-      restrict: 'E',
+      restrict: 'EA',
       templateUrl: 'app/components/tabs/tabs.html',
       controller: TabsController,
       controllerAs: 'tabs.vm'

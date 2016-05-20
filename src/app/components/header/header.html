@@ -32,9 +32,11 @@
         </md-input-container>
       </div>
 
-      <md-button type="submit" class="md-raised md-accent btn-search">
-        <md-icon class="material-icons md-24">search</md-icon>
-        <span>&nbsp;Search</span>
+      <md-button type="submit" ng-disabled="headerVm.isLoading" class="md-raised md-accent btn-search">
+        <md-icon ng-show="!headerVm.isLoading" class="material-icons md-24">search</md-icon>
+
+        <span ng-show="headerVm.isLoading" >&nbsp;Loading ...</span>
+        <span ng-show="!headerVm.isLoading" >&nbsp;Search</span>
       </md-button>
     </form>
   </div>

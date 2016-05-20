@@ -1,4 +1,4 @@
-<md-list-item class="md-2-line" ng-repeat="item in $ctrl.albums">
+<md-list-item class="md-2-line" ng-repeat="item in $ctrl.userTopAlbums">
   <div class="md-list-item-text item-rank">
     <span class="md-subhead">{{ item["@attr"].rank }}</span>
   </div>
@@ -19,6 +19,6 @@
 
   <div flex="20" hide-xs class="md-list-item-text item-right">
     <p>{{ item.playcount | number:0 }} scrobbles</p>
-    <p>{{ (item.playcount / $ctrl.totalPlaycount) * 100 | number:2 }}% of total</p>
+    <p>{{ (item.playcount / $ctrl.userTotalPlaycount) * 100 | number:2 }}% of total</p>
   </div>
 </md-list-item>

@@ -9,48 +9,16 @@
     });
 
   /** @ngInject */
-  function TopAlbumsController($scope, $http, $log, config, placeholder, apiMethods) {
+  function TopAlbumsController($scope, $http, $log, config, placeholder, API) {
     var ctrl = this;
-    ctrl.albums = [];
-    ctrl.placeholderAlbum = placeholder.ALBUM;
 
-    $scope.$on('onUserSearch', function(event, evtParam) {
-      if (evtParam) {
-        onUserChange(evtParam);
+    $scope.$on('onGetUserTopAlbums', function(event, userData) {
+      if (userData) {
+        ctrl.userTopAlbums = userData.userTopAlbums['topalbums']['album'];
+        ctrl.userTotalPlaycount = userData.userTotalPlaycount;
 
-        if (evtParam.totalPlaycount) {
-          ctrl.totalPlaycount = evtParam.totalPlaycount;
-        }
+        ctrl.placeholderAlbum = placeholder.ALBUM;
       }
     });
-
-    function onUserChange(evtParam) {
-      var parameters =
-        angular.element.param({
-          method: apiMethods.GET_USER_TOP_ALBUMS,
-          api_key: config.API_KEY,
-          format: config.FORMAT,
-          user: evtParam.user,
-          period: evtParam.period,
-          limit: evtParam.limit
-        });
-
-      var requestTopAlbums = {
-        method: 'GET',
-        url: config.URL + parameters,
-        headers: {},
-        data: {}
-      }
-
-      $http(requestTopAlbums).then(function successCallback(response) {
-          ctrl.albums = response.data['topalbums']['album'];
-        },
-        function errorCallback(response) {
-          $log.error({
-            type: response.status,
-            msg: response.data
-          });
-        });
-    }
   }
 })();

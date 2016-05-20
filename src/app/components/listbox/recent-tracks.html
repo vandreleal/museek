@@ -1,4 +1,4 @@
-<md-list-item class="md-2-line" ng-repeat="item in $ctrl.recentTracks">
+<md-list-item class="md-2-line" ng-repeat="item in $ctrl.userRecentTracks">
   <a href="{{ item.url }}" target="_blank">
     <img ng-if="item.image[1]['#text']" ng-src="{{ item.image[1]['#text'] | trustAsResourceUrl }}" class="md-avatar md-avatar-56" alt="{{ item.name }}" />
     <img ng-if="!item.image[1]['#text']" ng-src="{{ $ctrl.placeholderTrack | trustAsResourceUrl }}" class="md-avatar md-avatar-56" alt="{{ item.name }}" />

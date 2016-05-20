@@ -95,7 +95,7 @@ a {
 }
 
 .content {
-  padding-top: 72px;
+  margin-top: 72px;
 
   .profile {
     padding-top: 16px;
@@ -104,12 +104,12 @@ a {
 
     &-name {
       margin-top: 8px;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
     }
 
     &-info {
-      margin-top: 8px;
-      margin-bottom: 8px;
+      margin-top: 4px;
+      margin-bottom: 4px;
     }
 
     &-img {
@@ -120,7 +120,6 @@ a {
 
   .message {
     padding: 32px;
-    margin-bottom: 72px;
     background-color: $md-red-50;
     border-radius: 3px;
     color: $md-red-900;

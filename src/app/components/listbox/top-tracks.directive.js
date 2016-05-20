@@ -9,49 +9,16 @@
     });
 
   /** @ngInject */
-  function TopTracksController($scope, $http, $log, config, placeholder, apiMethods) {
+  function TopTracksController($scope, $http, $log, config, placeholder, API) {
     var ctrl = this;
-    ctrl.tracks = [];
-    ctrl.placeholderTrack = placeholder.TRACK;
 
-    $scope.$on('onUserSearch', function(event, evtParam) {
-      if (evtParam) {
-        onUserChange(evtParam);
+    $scope.$on('onGetUserTopTracks', function(event, userData) {
+      if (userData) {
+        ctrl.userTopTracks = userData.userTopTracks['toptracks']['track'];
+        ctrl.userTotalPlaycount = userData.userTotalPlaycount;
 
-        if (evtParam.totalPlaycount) {
-          ctrl.totalPlaycount = evtParam.totalPlaycount;
-        }
+        ctrl.placeholderTrack = placeholder.TRACK;
       }
     });
-
-    function onUserChange(evtParam) {
-
-      var parameters =
-        angular.element.param({
-          method: apiMethods.GET_USER_TOP_TRACKS,
-          api_key: config.API_KEY,
-          format: config.FORMAT,
-          user: evtParam.user,
-          period: evtParam.period,
-          limit: evtParam.limit
-        });
-
-      var requestTopTracks = {
-        method: 'GET',
-        url: config.URL + parameters,
-        headers: {},
-        data: {}
-      }
-
-      $http(requestTopTracks).then(function successCallback(response) {
-          ctrl.tracks = response.data['toptracks']['track'];
-        },
-        function errorCallback(response) {
-          $log.error({
-            type: response.status,
-            msg: response.data
-          });
-        });
-    }
   }
 })();

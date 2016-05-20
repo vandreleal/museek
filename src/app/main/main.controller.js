@@ -8,11 +8,12 @@
   /** @ngInject */
   function MainController($scope, $http, $log, placeholder) {
     var vm = this;
+    
     vm.placeholderUser = placeholder.USER;
     vm.placeholderNow = placeholder.NOW;
 
-    $scope.$on('onSearch', function(event, evtParam) {
-      vm.response = evtParam;
+    $scope.$on('onGetUserInfo', function(event, data) {
+      vm.userInfo = data;
     });
   }
 })();

@@ -8,7 +8,7 @@
   /** @ngInject */
   function coreHeader() {
     var directive = {
-      restrict: 'E',
+      restrict: 'EA',
       templateUrl: 'app/components/header/header.html',
       controller: HeaderController,
       controllerAs: 'headerVm'
@@ -17,7 +17,7 @@
     return directive;
 
     /** @ngInject */
-    function HeaderController($scope, $timeout, $http, $log, config, placeholder, apiMethods) {
+    function HeaderController($scope, $timeout, $http, $log, config, placeholder, API) {
       var headerVm = this;
 
       headerVm.logo = "/assets/images/logo.png";
@@ -44,56 +44,67 @@
         parameter: "12month"
       }];
 
-      function getUserInfo() {
-        var parameters =
-          angular.element.param({
-            method: apiMethods.GET_USER_INFO,
-            user: headerVm.user,
-            api_key: config.API_KEY,
-            format: config.FORMAT
-          });
 
-        var request = {
-          method: 'GET',
-          url: config.URL + parameters,
-          headers: {},
-          data: {}
+      function getUserData(userInfo) {
+
+        if (userInfo.error) {
+          headerVm.isLoading = false;
+        }
+        else {
+          var userTotalPlaycount = userInfo.user.playcount;
+
+          if (!headerVm.limit) {
+            headerVm.limit = config.LIMIT;
+          }
+
+          API.getUserTopAlbums(headerVm.user, headerVm.limit, headerVm.period)
+            .then(function(userTopAlbums) {
+              $scope.$broadcast('onGetUserTopAlbums', {
+                userTopAlbums: userTopAlbums,
+                userTotalPlaycount: userTotalPlaycount
+              });
+            });
+
+          API.getUserTopArtists(headerVm.user, headerVm.limit, headerVm.period)
+            .then(function(userTopArtists) {
+              $scope.$broadcast('onGetUserTopArtists', {
+                userTopArtists: userTopArtists,
+                userTotalPlaycount: userTotalPlaycount
+              });
+            });
+
+          API.getUserTopTracks(headerVm.user, headerVm.limit, headerVm.period)
+            .then(function(userTopTracks) {
+              $scope.$broadcast('onGetUserTopTracks', {
+                userTopTracks: userTopTracks,
+                userTotalPlaycount: userTotalPlaycount
+              });
+            });
+
+          API.getUserRecentTracks(headerVm.user, headerVm.limit, 1)
+            .then(function(userRecentTracks) {
+              $scope.$broadcast('onGetUserRecentTracks', {
+                userRecentTracks: userRecentTracks,
+                userTotalPlaycount: userTotalPlaycount
+              });
+
+              headerVm.isLoading = false;
+            });
         }
 
-        $http(request).then(function successCallback(response) {
-            if (!headerVm.limit) {
-              headerVm.limit = config.LIMIT;
-            }
-
-            $scope.$broadcast('onSearch', {
-              data: response.data,
-              user: headerVm.user
-            });
-
-            if (!response.data.error) {
-              $scope.$broadcast('onUserSearch', {
-                user: headerVm.user,
-                period: headerVm.period,
-                limit: headerVm.limit,
-                totalPlaycount: response.data.user.playcount
-              });
-            }
-          },
-          function errorCallback(response) {
-            $log.error({
-              type: response.status,
-              msg: response.data
-            });
-          });
+        $scope.$broadcast('onGetUserInfo', {
+          data: userInfo,
+          user: headerVm.user
+        });
       }
 
       headerVm.searchUser = function() {
-        getUserInfo();
         headerVm.isLoading = true;
 
-        $timeout(function() {
-          headerVm.isLoading = false;
-        }, 1000);
+        API.getUserInfo(headerVm.user)
+          .then(function(userInfo) {
+            getUserData(userInfo);
+          });
       }
 
     }
