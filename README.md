@@ -1,7 +1,9 @@
 # Museek
+https://vandreleal.github.io/museek
 
-> Project submitted to Angular Attack, which is a 48-hour online hackathon featuring Angular. Museek provides the ability to search and visualize any Last.fm user's statistics.
-[AngularAttack Entry Link](https://www.angularattack.com/entries/3165-dubjay)
+> Project submitted to Angular Attack 2016, which is a 48-hour online hackathon featuring Angular. Museek provides the ability to search and visualize any Last.fm user's statistics.
+
+[Angular Attack Entry Link.](https://www.angularattack.com/entries/3165-dubjay)
 
 ## Description
 
@@ -43,6 +45,5 @@
 + [Wrench](https://github.com/ryanmcgrath/wrench-js 'Wrench')
 
 ## Team
-
-> [Vandré Leal Cândido](https://github.com/vandreleal)
-> [Emerson Jair Reis Oliveira da Silva](https://github.com/dungahk)
++ [Vandré Leal Cândido](https://github.com/vandreleal)
++ [Emerson Jair Reis Oliveira da Silva](https://github.com/dungahk)
