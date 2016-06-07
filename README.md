@@ -31,7 +31,7 @@
 + Limit (Optional) [default: 10 | max: 100]
 + Period (Optional) [default: overall]
 
-### 2. Click on any of the following tabs to check the desired user's information:
+### 2. Click on any of the following tabs to check the desired user's data:
 + Top Artists
 + Top Albums
 + Top Tracks
