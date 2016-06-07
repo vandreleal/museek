@@ -1,48 +1,48 @@
-# This is your [AngularAttack](https://www.angularattack.com) 2016 Repo
+# Museek
 
-This repo is the start of your AngularAttack 2016 entry. It contains the simple [Angular2 starter](https://angular.io/docs/ts/latest/quickstart.html) files.
+> Project submitted to Angular Attack, which is a 48-hour online hackathon featuring Angular. Museek provides the ability to search and visualize any Last.fm user's statistics.
+[AngularAttack Entry Link](https://www.angularattack.com/entries/3165-dubjay)
 
-**DO NOT MAKE ANY CODE CHECKINS TO THIS REPOSITORY BEFORE THE COMPETITION OFFICIALLY BEGINS.**
+## Description
 
-**DOING SO COULD DISQUALIFY YOU.**
+### Configurable Last.fm API Parameters:
++ User
++ Limit
++ Period
 
+### Supported Methods:
++ [user.getInfo](http://www.last.fm/api/show/user.getInfo "user.getInfo")
++ [user.getTopAlbums](http://www.last.fm/api/show/user.getTopAlbums "user.getTopAlbums")
++ [user.getTopArtists](http://www.last.fm/api/show/user.getTopArtists "user.getTopArtists")
++ [user.getTopTracks](http://www.last.fm/api/show/user.getTopTracks "user.getTopTracks")
++ [user.getRecentTracks](http://www.last.fm/api/show/user.getRecentTracks "user.getRecentTracks")
 
-However, before the competition starts, there are some things we encourage you to do to get prepared for the competition.
+## Instructions
 
+### 1. Fill out the following fields and click on the search button:
++ User (Required)
++ Limit (Optional) [default: 10 | max: 100]
++ Period (Optional) [default: overall]
 
-### Step 1) Get Your Local Environment setup
+### 2. Click on any of the following tabs to check the desired user's information:
++ Top Artists
++ Top Albums
++ Top Tracks
++ Recent Tracks
 
-Clone this repo locally, and make sure all your team members have access to it.
+## Built with
 
-* Install the latest [Node / NPM](https://nodejs.org).
++ [Last.fm API](http://www.last.fm/pt/api 'Last.fm API')
++ [Gulp-Angular Yeoman’s generator](https://github.com/Swiip/generator-gulp-angular "Gulp-Angular Yeoman’s generator")
++ [Angular Material](https://material.angularjs.org/latest/ 'Angular Material')
++ [Material Colors](https://github.com/shuhei/material-colors 'Material Colors')
++ [Gulp](http://gulpjs.com/  'Gulp')
++ [Sass](http://sass-lang.com/  'Sass')
++ [Wiredep](https://github.com/taptapship/wiredep  'Wiredep')
++ [BrowserSync](https://www.browsersync.io/ 'BrowserSync')
++ [Wrench](https://github.com/ryanmcgrath/wrench-js 'Wrench')
 
-* `git clone git@github.com:rumblex/angularattack2016-dubjay.git`
+## Team
 
-* `cd angularattack2016-dubjay`
-
-* `npm install`
-
-* `npm start` will start the server locally to test that everything is running correctly
-
-
-### Step 2) Deploy Your App
-
-While you can't make any checkins before the comp, what you **can** do right now is deploy this sample app to [Surge](https://surge.sh) (our competition hosting provider).
-
-* `npm install -g surge`
-
-* `surge .`
-
-Note: please do not remove the `CNAME` file, as that tells it where to deploy to.
-
-If you receive an error message `"You do not have permission to publish to dubjay.2016.angularattack.io"`, it might mean another team member has already deployed your project to Surge. Ask them to run the next step to give you access.
-
-### Step 3) Add Your Team Members to Surge
-
-* `surge . --add vandre.leal.candido@gmail.com,emersonjairr@gmail.com`
-
-
-### Step 4) Wait til competition starts
-
-It begins at exactly [May 14 at 00:00 UTC](https://www.wolframalpha.com/input/?i=May+14,+2016+0:00+UTC). Once the competition starts,   you can write over this project.
-
+> [Vandré Leal Cândido](https://github.com/vandreleal)
+> [Emerson Jair Reis Oliveira da Silva](https://github.com/dungahk)
