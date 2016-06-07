@@ -1,9 +1,7 @@
 # Museek
 https://vandreleal.github.io/museek
 
-> Project submitted to Angular Attack 2016, which is a 48-hour online hackathon featuring Angular. Museek provides the ability to search and visualize any Last.fm user's statistics.
-
-[Angular Attack Entry Link.](https://www.angularattack.com/entries/3165-dubjay)
+> Project submitted to Angular Attack 2016, which is a 48-hour online hackathon featuring Angular. Museek provides the ability to search and visualize any Last.fm user's statistics. [Angular Attack Entry Link.](https://www.angularattack.com/entries/3165-dubjay)
 
 ## Description
 
