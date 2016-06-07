@@ -13,12 +13,12 @@ Application Link:
 
 ## Description
 
-### Configurable Last.fm API Parameters:
+#### Configurable Last.fm API Parameters:
 + User
 + Limit
 + Period
 
-### Supported Methods:
+#### Supported Methods:
 + [user.getInfo](http://www.last.fm/api/show/user.getInfo "user.getInfo")
 + [user.getTopAlbums](http://www.last.fm/api/show/user.getTopAlbums "user.getTopAlbums")
 + [user.getTopArtists](http://www.last.fm/api/show/user.getTopArtists "user.getTopArtists")
@@ -27,12 +27,12 @@ Application Link:
 
 ## Instructions
 
-### 1. Fill out the following fields and click on the search button:
+#### 1. Fill out the following fields and click on the search button:
 + User (Required)
 + Limit (Optional) [default: 10 | max: 100]
 + Period (Optional) [default: overall]
 
-### 2. Click on any of the following tabs to check the desired user's data:
+#### 2. Click on any of the following tabs to check the desired user's data:
 + Top Artists
 + Top Albums
 + Top Tracks
