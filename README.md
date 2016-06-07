@@ -3,6 +3,8 @@ https://vandreleal.github.io/museek
 
 > Project submitted to Angular Attack 2016, which is a 48-hour online hackathon featuring Angular. Museek provides the ability to search and visualize any Last.fm user's statistics. [Angular Attack Entry Link.](https://www.angularattack.com/entries/3165-dubjay)
 
+![Museek](https://s3.amazonaws.com/rumblex/screenshots/angularattack2016/44d25fcfd955d68346fddfd8da2963c5/1463434085/v800_screenshot.png)
+
 ## Description
 
 ### Configurable Last.fm API Parameters:
@@ -33,7 +35,6 @@ https://vandreleal.github.io/museek
 ## Built with
 
 + [Last.fm API](http://www.last.fm/pt/api 'Last.fm API')
-+ [Gulp-Angular Yeoman’s generator](https://github.com/Swiip/generator-gulp-angular "Gulp-Angular Yeoman’s generator")
 + [Angular Material](https://material.angularjs.org/latest/ 'Angular Material')
 + [Material Colors](https://github.com/shuhei/material-colors 'Material Colors')
 + [Gulp](http://gulpjs.com/  'Gulp')
