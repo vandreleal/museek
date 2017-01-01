@@ -5,7 +5,7 @@
 // bower:scss
 // endbower
 
-@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,500,700|Roboto:400,500,700,700italic,400italic);
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,700italic,400italic);
 @import '../../bower_components/material-colors/dist/colors.scss';
 
 @font-face {
@@ -60,7 +60,7 @@
 }
 
 html {
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Roboto', sans-serif;
   background-color: $md-white;
 }
 

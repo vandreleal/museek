@@ -2,6 +2,10 @@ md-list-item {
   margin: 8px auto;
   border-bottom: 1px solid $md-grey-200;
 
+  p {
+    font-weight: 400 !important;
+  }
+
   .md-avatar-56 {
     border-radius: 2px;
     width: 56px;
