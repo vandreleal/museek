@@ -20,11 +20,9 @@
     function FooterController() {
       var footerVm = this;
 
+      footerVm.app = "Museek";
       footerVm.logo = "assets/images/favicon.png";
-      footerVm.entry = "Museek";
-      footerVm.appUrl = "dubjay.2016.angularattack.io";
-      footerVm.teamUrl = "www.angularattack.com/entries/3165-dubjay";
-      footerVm.year = new Date().getFullYear();
+      footerVm.year = "2016";
     }
   }
 
