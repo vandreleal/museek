@@ -46,7 +46,3 @@
 + [Wiredep](https://github.com/taptapship/wiredep  'Wiredep')
 + [BrowserSync](https://www.browsersync.io/ 'BrowserSync')
 + [Wrench](https://github.com/ryanmcgrath/wrench-js 'Wrench')
-
-## Team
-+ [Vandré Leal Cândido](https://github.com/vandreleal)
-+ [Emerson Jair Reis Oliveira da Silva](https://github.com/dungahk)
